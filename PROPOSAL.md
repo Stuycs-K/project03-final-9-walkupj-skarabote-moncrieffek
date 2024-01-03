@@ -2,7 +2,7 @@
 
 ## Group Members:
 
-names here.
+Eva Skarabot, Jo Walkup, Katharine Moncrieffe
        
 # Intentions:
 

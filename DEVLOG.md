@@ -23,3 +23,6 @@ Wrote what parts I would be responsible for, finished the intended usage section
 
 ### 2024-01-04 - put in old music project
 Copied and pasted in our old working music library project; 5 mins
+
+### 2024-01-04 - commands
+Updated the if statements for the commands we would use this program, wrote in comments so that we could fill in for the functions later; 20 mins

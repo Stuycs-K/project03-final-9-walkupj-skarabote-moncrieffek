@@ -5,8 +5,8 @@
 ### 2024-01-03 - added to proposal
 worked on brainstorming ideas, writing proposal with jo and eva
 
-### 2024-01-03 - Brief description
-Expanded description including how much time was spent on task.
+### 2024-01-04 - began work
+finalized idea + plans in class with eva, started work on my tasks
 
 ## Jo Walkup
 

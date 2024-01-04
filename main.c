@@ -6,7 +6,7 @@
 #include "library.h"
 
 
-int main(){
+int main(int argc, char* argv[]){
     srand( time(NULL) );
 
     printf("LINKED LIST TESTS\n====================================\n");

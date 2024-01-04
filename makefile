@@ -7,8 +7,8 @@ library.o: library.c linkedlist.h
 	@gcc -c library.c
 linkedlist.o: linkedlist.c 
 	@gcc -c linkedlist.c
-run: runme
-	@./runme
+run: runme 
+	@./runme $(ARGS)
 clean:
 	rm *.o
 	rm runme

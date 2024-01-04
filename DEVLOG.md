@@ -8,13 +8,10 @@ Expanded description including how much time was spent on task.
 ### 2024-01-03 - Brief description
 Expanded description including how much time was spent on task.
 
-## Player 2
+## Jo Walkup
 
-### 2024-01-02 - Brief description
-Expanded description including how much time was spent on task.
-
-### 2024-01-03 - Brief description
-Expanded description including how much time was spent on task.
+### 2024-01-04 - Added to proposal
+Added the technical details section, what parts I would be responsible for, and the intentions section. 10 min
 
 ## Eva Skarabot
 

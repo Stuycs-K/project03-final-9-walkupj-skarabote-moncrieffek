@@ -3,11 +3,12 @@
 ## Group Members:
 
 Eva Skarabot, Jo Walkup, Katharine Moncrieffe
-       
+
 # Intentions:
 
 A statement of the problem you are solving and/or a high level description of the project.
-    
+Music player/playlist manager with file search functionality
+
 # Intended usage:
 
 A description as to how the project will be used (describe the user interface).
@@ -26,23 +27,30 @@ User commands include:
 -   first letters of either title or artist (if the user inputs the first few letters and presses enter, program will print out a list of songs or artists starting with those letters)
 - menu: for a list of user commands
 
-  
+
 # Technical Details:
 
 A description of your technical design. This should include:
-   
+
 How you will be using the topics covered in class in the project.
-     
+
 How you are breaking down the project and who is responsible for which parts.
+
+Topics used include: allocating memory, working with and finding information about files, managing processes and signals, fork and exec to incorporate a music player, semaphores to make sure only one person is editing the playlist at one time, sockets/pipes so that multiple people can use the playlist
 
 Eva:
 - Semaphores and the network part
 - user interface
 
+Jo:
+- playing actual music files
+- finding info about files
+- managing signals
+
 What data structures you will be using and how.
-     
+
 What algorithms and /or data structures you will be using, and how.
-    
+
 # Intended pacing:
 
 A timeline with expected completion dates of parts of the project.

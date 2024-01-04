@@ -2,7 +2,7 @@
 
 ## Group Members:
 
-names here.
+Eva Skarabot, Jo Walkup, Katharine Moncrieffe
        
 # Intentions:
 
@@ -11,6 +11,21 @@ A statement of the problem you are solving and/or a high level description of th
 # Intended usage:
 
 A description as to how the project will be used (describe the user interface).
+The user interface will be on the command line. Playlists will be in different colors from the songs, and the user will type in commands to control their playlist and the song currently playing.
+
+Furthermore, we will have it act like a shared playlist, so multiple clients can access it.
+
+User commands include:
+- add/rmv: Add and remove songs
+- play/pause/skip: Play songs (using a music player)
+- shuffle: Shuffle
+- view: See the entire playlist
+- search ___: Search for songs within the playlist by
+-   song title
+-   artist
+-   first letters of either title or artist (if the user inputs the first few letters and presses enter, program will print out a list of songs or artists starting with those letters)
+- menu: for a list of user commands
+
   
 # Technical Details:
 
@@ -19,7 +34,11 @@ A description of your technical design. This should include:
 How you will be using the topics covered in class in the project.
      
 How you are breaking down the project and who is responsible for which parts.
-  
+
+Eva:
+- Semaphores and the network part
+- user interface
+
 What data structures you will be using and how.
      
 What algorithms and /or data structures you will be using, and how.

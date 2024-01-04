@@ -1,25 +1,25 @@
 # Dev Log:
 
-## Player 1
-
-### 2024-01-02 - Brief description
-Expanded description including how much time was spent on task.
-
-### 2024-01-03 - Brief description
-Expanded description including how much time was spent on task.
-
-## Player 2
-
-### 2024-01-02 - Brief description
-Expanded description including how much time was spent on task.
-
-### 2024-01-03 - Brief description
-Expanded description including how much time was spent on task.
-
 ## Katharine Moncrieffe
 
-### 2024-01-03 - brainstormed ideas for proposal
-worked with jo and eva to brainstorm ideas for final project in class
+### 2024-01-03 - added to proposal
+worked on brainstorming ideas, writing proposal with jo and eva
 
 ### 2024-01-03 - Brief description
 Expanded description including how much time was spent on task.
+
+## Jo Walkup
+
+### 2024-01-04 - Added to proposal
+Added the technical details section, what parts I would be responsible for, and the intentions section. 10 min
+
+## Eva Skarabot
+
+### 2024-01-02 - Brief description
+Expanded description including how much time was spent on task.
+
+### 2024-01-03 - start proposal
+Wrote what parts I would be responsible for, finished the intended usage section, included all the features
+
+### 2024-01-04 - put in old music project
+Copied and pasted in our old working music library project; 5 mins

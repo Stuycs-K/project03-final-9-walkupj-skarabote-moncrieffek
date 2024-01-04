@@ -13,6 +13,9 @@ finalized idea + plans in class with eva, started work on my tasks
 ### 2024-01-04 - Added to proposal
 Added the technical details section, what parts I would be responsible for, and the intentions section. 10 min
 
+### 2024-01-04 - Added file work from previous lab
+Added the code to go through all files and extract their information
+
 ## Eva Skarabot
 
 ### 2024-01-02 - Brief description

@@ -16,6 +16,9 @@ Added the technical details section, what parts I would be responsible for, and 
 ### 2024-01-04 - Added file work from previous lab
 Added the code to go through all files and extract their information
 
+### 2024-01-04 - Modified the file stuff
+Condensed the code into a single function to be used, ~10 min
+
 ## Eva Skarabot
 
 ### 2024-01-02 - Brief description

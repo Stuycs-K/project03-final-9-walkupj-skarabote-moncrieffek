@@ -1,9 +1,9 @@
 # Dev Log:
 
-## Player 1
+## Katharine Moncrieffe
 
-### 2024-01-02 - Brief description
-Expanded description including how much time was spent on task.
+### 2024-01-03 - added to proposal
+worked on brainstorming ideas, writing proposal with jo and eva
 
 ### 2024-01-03 - Brief description
 Expanded description including how much time was spent on task.

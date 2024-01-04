@@ -47,10 +47,21 @@ Jo:
 - finding info about files
 - managing signals
 
-What data structures you will be using and how.
+Katharine: 
+ - being able to manage music files
+ - searching for files 
 
+What data structures you will be using and how.
+Algorithms/Data Structures used: Linked lists, nodes, sorting and searching
 What algorithms and /or data structures you will be using, and how.
 
 # Intended pacing:
 
 A timeline with expected completion dates of parts of the project.
+
+Jan 4-5: Bring back the old project and make it so the user can input things, also input the user interface
+Jan 6-8: Make the semaphore and network thing so that it can be used as a shared playlist across
+Jan 9-12: 
+Jan 13-15: Lots of debugging
+Jan 15: we will practice our presentation
+

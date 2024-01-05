@@ -157,13 +157,18 @@ void clear_library(struct song_node** lib) {
     }
 }
 
-struct node search(struct node *front, char *artist, char *name){
+void print_node(struct node *s){ 
+  if(s != NULL) printf("%s by %s\n", s->song, s->artist);
+}
+
+void search_artist(struct node *front, char *artist){
     struct node *current = front;
     while(current){
-        if(strcmp(current->artist, artist) == 0 && strcmp(current->name, name) == 0){
-            return current;
+        if(strcmp(current->artist, artist) == 0){
+            print_node(current);
         }
         current = current->next;
     }
     return NULL;
 }
+

@@ -7,6 +7,7 @@ worked on brainstorming ideas, writing proposal with jo and eva
 
 ### 2024-01-04 - began work
 finalized idea + plans in class with eva, started work on my tasks
+-> added a basic search function
 
 ## Jo Walkup
 

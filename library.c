@@ -74,8 +74,6 @@ void print_letter(struct song_node** lib, char letter){
 }
 
 
-
-
 //6.
 void print_artist(struct song_node** lib, char* artist) {
     struct song_node* front = search_artist(lib, artist);
@@ -157,4 +155,15 @@ void clear_library(struct song_node** lib) {
     for (int i = 0; i < 27; i++) {
         lib[i] = free_list(lib[i]);
     }
+}
+
+struct node search(struct node *front, char *artist, char *name){
+    struct node *current = front;
+    while(current){
+        if(strcmp(current->artist, artist) == 0 && strcmp(current->name, name) == 0){
+            return current;
+        }
+        current = current->next;
+    }
+    return NULL;
 }

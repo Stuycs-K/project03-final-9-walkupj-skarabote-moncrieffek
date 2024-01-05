@@ -20,6 +20,9 @@ Added the code to go through all files and extract their information
 ### 2024-01-04 - Modified the file stuff
 Condensed the code into a single function to be used, ~10 min
 
+### 2024-01-05 -
+Added music file, downloaded Bass,
+
 ## Eva Skarabot
 
 ### 2024-01-02 - Brief description

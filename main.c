@@ -48,6 +48,7 @@ int main(int argc, char* argv[]){
             //update_data();
         }
         else if(strcmp(argv[1], "menu" ) == 0){
+            print_menu();
             //SOMEONE GOTTA MAKE THIS FUNCTION: just like a list of all the functions a user can do lol
         }
         else{

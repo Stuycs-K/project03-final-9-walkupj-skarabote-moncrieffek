@@ -171,6 +171,28 @@ void search_artist(struct node *front, char *artist){
     }
     return NULL;
 
+void search_title(struct node *front, char *name){
+    struct node *current = front;
+    while(current){
+        if(strcmp(current->name, name) == 0){
+           print_node(current);
+        }
+        current = current->next;
+    }
+    return NULL;
+}
+
+void search_letter(struct node *front, char *letter){
+    struct node *current = front;
+    while(current){
+        if(strcmp(current->artist[0], letter) == 0 || strcmp(current->name[0], letter) == 0])){
+            print_node(current);
+        }
+        current = current->next;
+    }
+    return NULL;
+}
+
 //11. extra !!
 void print_menu(){
     printf("here are a list of commands you can use in this music player!\n");

@@ -157,15 +157,15 @@ void clear_library(struct song_node** lib) {
     }
 }
 
-struct node search(struct node *front, char *artist, char *name){
-    struct node *current = front;
-    while(current){
-        if(strcmp(current->artist, artist) == 0 && strcmp(current->name, name) == 0){
-            return current;
-        }
-        current = current->next;
-    }
-    return NULL;
+// struct node search(struct node *front, char *artist, char *name){
+//     struct node *current = front;
+//     while(current){
+//         if(strcmp(current->artist, artist) == 0 && strcmp(current->name, name) == 0){
+//             return current;
+//         }
+//         current = current->next;
+//     }
+//     return NULL;
 
 //11. extra !!
 void print_menu(){
@@ -176,5 +176,4 @@ void print_menu(){
     printf("view: See the entire playlist\n");
     printf("search ___: Search for songs within the playlist by the song title and artist, or first letters\n");
     printf("menu: Print a list of user commands\n");
-}
 }

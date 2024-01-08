@@ -10,7 +10,12 @@ int main(int argc, char* argv[]){
     srand( time(NULL) );
 
     printf("LINKED LIST TESTS\n====================================\n");
+    struct song_node** library = make_library();
 
+
+    //umm testing lol!
+    add_song(library, "arctic monkeys", "i wanna be yours");
+    add_song(library, "zeph", "world");
     // struct song_node* front = memory("artistB", "t");
     // front = insert_in_order(front, "artistA", "h");
     // front = insert_in_order(front, "artistA", "f");
@@ -25,17 +30,45 @@ int main(int argc, char* argv[]){
         // }
         //um do we need a create one.
        if(strcmp(argv[1], "view" ) == 0){
-            
+            printf("you clicked view\n");
+           print_library(library); 
         }
         else if(strcmp(argv[1], "add" ) == 0){
-           // add_song(library, "aphex twin", "xtal"); 
+            char buff1[256];
+            char buff2[256];
+            printf("enter the artist name: ");
+            char * userartist = fgets(buff1, 100, stdin);
+            printf("enter the song name: ");
+            char * usersong = fgets(buff2, 100, stdin);
+            char song[100];
+            char artist[100];
+            
+
+            sscanf(usersong, "%s", song);
+            
+            sscanf(userartist, "%s", artist);
+            add_song(library, artist, song); 
+            print_library(library);
            //we're gonna have to change these things to the fgets thing
         }
         else if(strcmp(argv[1], "shuffle" ) == 0){
+            //printf()
             //change 5 to the length of the library
            //shuffle(library, 5);
         }
         else if(strcmp(argv[1], "remove" ) == 0){
+            char buff1[256];
+            char buff2[256];
+            char * userartist = fgets(buff1, 100, stdin);
+            char * usersong = fgets(buff2, 100, stdin);
+            printf("hiii");
+            char song[100];
+            char artist[100];
+            sscanf(usersong, "%s", song);
+            sscanf(userartist, "%s", artist);
+            printf("%s", song);
+            remove_song_lib(library, song, artist); 
+            print_library(library);
             // remove_song_lib(library, "aphex twin", "ageispolis");
             //change those artist and song to fgets
             // remove_song_lib(library, "aphex twin", "ageispolis");

@@ -24,7 +24,10 @@ Condensed the code into a single function to be used, ~10 min
 Added music file, downloaded Bass, made plan
 
 ### 2024-01-07 - Bass struggling
-Wrote some basic Bass code, tried to compile, major errors. Tried to understand the library & how to use. ~2 hrs 
+Wrote some basic Bass code, tried to compile, major errors. Tried to understand the library & how to use. ~2 hrs
+
+### 2024-01-08 - More Bass struggling
+Desperately trying to compile, but always getting an "undefined symbols" error. Will ask K tmrw. ~40 minutes
 
 ## Eva Skarabot
 

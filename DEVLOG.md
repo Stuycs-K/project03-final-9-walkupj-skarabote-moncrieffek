@@ -20,8 +20,11 @@ Added the code to go through all files and extract their information
 ### 2024-01-04 - Modified the file stuff
 Condensed the code into a single function to be used, ~10 min
 
-### 2024-01-05 -
-Added music file, downloaded Bass,
+### 2024-01-05 - Bass basics
+Added music file, downloaded Bass, made plan
+
+### 2024-01-07 - Bass struggling
+Wrote some basic Bass code, tried to compile, major errors. Tried to understand the library & how to use. ~2 hrs 
 
 ## Eva Skarabot
 

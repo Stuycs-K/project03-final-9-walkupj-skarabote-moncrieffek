@@ -121,7 +121,13 @@ int main(int argc, char* argv[]){
             //update_data();
             struct song_node* searching = search_song(library, artist, song);
            // printf("hii");
-    printf("found {%s, %s}\n", searching->artist, searching->name);
+            if (searching == NULL) {
+        printf("Song not found\n");
+    }
+    else {
+         printf("found {%s, %s}\n", searching->artist, searching->name);
+    }
+   
         }
         else if(strcmp(argv[1], "menu" ) == 0){
             print_menu();

@@ -166,4 +166,15 @@ struct node search(struct node *front, char *artist, char *name){
         current = current->next;
     }
     return NULL;
+
+//11. extra !!
+void print_menu(){
+    printf("here are a list of commands you can use in this music player!\n");
+    printf("add/rmv: Add and remove songs\n");
+    printf("play/pause/skip: Play songs (using a music player)\n");
+    printf("shuffle: Shuffle\n");
+    printf("view: See the entire playlist\n");
+    printf("search ___: Search for songs within the playlist by the song title and artist, or first letters\n");
+    printf("menu: Print a list of user commands\n");
+}
 }

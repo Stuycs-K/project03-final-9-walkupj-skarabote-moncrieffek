@@ -42,3 +42,6 @@ Copied and pasted in our old working music library project; 5 mins
 
 ### 2024-01-04 - commands
 Updated the if statements for the commands we would use this program, wrote in comments so that we could fill in for the functions later; 20 mins
+
+### 2024-01-05 - menu
+Created the menu function and tested it so that make run ARGS=menu works as intended; 10 mins

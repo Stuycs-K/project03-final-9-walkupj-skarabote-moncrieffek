@@ -28,6 +28,7 @@ Wrote some basic Bass code, tried to compile, major errors. Tried to understand 
 
 ### 2024-01-08 - More Bass struggling
 Desperately trying to compile, but always getting an "undefined symbols" error. Will ask K tmrw. ~40 minutes
+Also merged :D
 
 ## Eva Skarabot
 

@@ -30,3 +30,9 @@ Updated the if statements for the commands we would use this program, wrote in c
 
 ### 2024-01-05 - menu
 Created the menu function and tested it so that make run ARGS=menu works as intended; 10 mins
+
+### 2024-01-07 - add, shuffle
+Updated code so that the ARGS=add and shuffle works, also uses user input now; remove is still broken
+
+### 2024-01-07 - search
+Updated code so that the ARGS=search works, also uses user input now; remove is still broken

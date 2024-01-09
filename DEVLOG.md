@@ -19,6 +19,22 @@ tested new libraries, will finalize and begin to implement soon
 ### 2024-01-04 - Added to proposal
 Added the technical details section, what parts I would be responsible for, and the intentions section. 10 min
 
+### 2024-01-04 - Added file work from previous lab
+Added the code to go through all files and extract their information
+
+### 2024-01-04 - Modified the file stuff
+Condensed the code into a single function to be used, ~10 min
+
+### 2024-01-05 - Bass basics
+Added music file, downloaded Bass, made plan
+
+### 2024-01-07 - Bass struggling
+Wrote some basic Bass code, tried to compile, major errors. Tried to understand the library & how to use. ~2 hrs
+
+### 2024-01-08 - More Bass struggling
+Desperately trying to compile, but always getting an "undefined symbols" error. Will ask K tmrw. ~40 minutes
+Also merged :D
+
 ## Eva Skarabot
 
 ### 2024-01-02 - Brief description

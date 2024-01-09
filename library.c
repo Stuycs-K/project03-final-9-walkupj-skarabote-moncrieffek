@@ -157,15 +157,41 @@ void clear_library(struct song_node** lib) {
     }
 }
 
-// struct node search(struct node *front, char *artist, char *name){
-//     struct node *current = front;
-//     while(current){
-//         if(strcmp(current->artist, artist) == 0 && strcmp(current->name, name) == 0){
-//             return current;
-//         }
-//         current = current->next;
-//     }
-//     return NULL;
+void print_node(struct node *s){ 
+  if(s != NULL) printf("%s by %s\n", s->song, s->artist);
+}
+
+void search_artist(struct node *front, char *artist){
+    struct node *current = front;
+    while(current){
+        if(strcmp(current->artist, artist) == 0){
+            print_node(current);
+        }
+        current = current->next;
+    }
+    return NULL;
+
+void search_title(struct node *front, char *name){
+    struct node *current = front;
+    while(current){
+        if(strcmp(current->name, name) == 0){
+           print_node(current);
+        }
+        current = current->next;
+    }
+    return NULL;
+}
+
+void search_letter(struct node *front, char *letter){
+    struct node *current = front;
+    while(current){
+        if(strcmp(current->artist[0], letter) == 0 || strcmp(current->name[0], letter) == 0])){
+            print_node(current);
+        }
+        current = current->next;
+    }
+    return NULL;
+}
 
 //11. extra !!
 void print_menu(){
@@ -177,3 +203,7 @@ void print_menu(){
     printf("search ___: Search for songs within the playlist by the song title and artist, or first letters\n");
     printf("menu: Print a list of user commands\n");
 }
+<<<<<<< HEAD
+=======
+}
+>>>>>>> katharine

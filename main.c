@@ -16,7 +16,7 @@
 int err(){
     printf("errno %d\n",errno);
     printf("%s\n",strerror(errno));
-    exit(1);
+    exit(0);
 }
 
 int main(int argc, char* argv[]){
@@ -58,7 +58,7 @@ int main(int argc, char* argv[]){
             char song[100];
             char artist[100];
             
-
+            
             sscanf(usersong, "%s", song);
             
             sscanf(userartist, "%s", artist);
@@ -83,7 +83,7 @@ int main(int argc, char* argv[]){
             char * userartist = fgets(buff1, 100, stdin);
             printf("enter the song name: ");
             char * usersong = fgets(buff2, 100, stdin);
-            //err();
+            err();
             char song[100];
             char artist[100];
             sscanf(usersong, "%s", song);

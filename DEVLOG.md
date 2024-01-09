@@ -12,6 +12,7 @@ finalized idea + plans in class with eva, started work on my tasks
 ### 2024-01-04 - worked on music
 found new libraries to play music after realizing bass wasn't working
 tested new libraries, will finalize and begin to implement soon
+-> continued searching for solution to undefined reference error we ran into in class, no progress so far
 
 ## Jo Walkup
 

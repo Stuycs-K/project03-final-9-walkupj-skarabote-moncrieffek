@@ -203,7 +203,3 @@ void print_menu(){
     printf("search ___: Search for songs within the playlist by the song title and artist, or first letters\n");
     printf("menu: Print a list of user commands\n");
 }
-<<<<<<< HEAD
-=======
-}
->>>>>>> katharine

@@ -5,14 +5,17 @@
 ### 2024-01-03 - added to proposal
 worked on brainstorming ideas, writing proposal with jo and eva
 
-### 2024-01-04, weekend - began work
+### 2024-01-04, 05, weekend - began work
 finalized idea + plans in class with eva, started work on my tasks
 -> added a basic search function
 
-### 2024-01-04 - worked on music
+### 2024-01-08, 09 - worked on music
 found new libraries to play music after realizing bass wasn't working
 tested new libraries, will finalize and begin to implement soon
 -> continued searching for solution to undefined reference error we ran into in class, no progress so far
+
+### 2024-01-10, weekend - began work
+working with mpg123, editing node fields to include an mp3 to allow easier playback of music files
 
 ## Jo Walkup
 

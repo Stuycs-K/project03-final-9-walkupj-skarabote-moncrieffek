@@ -170,10 +170,20 @@ int main(int argc, char* argv[]){
         }
 
         else if(strcmp( strcommand, "play") == 0){
-          char buff[256];
+          char buff1[256];
           printf("enter the song name: ");
           char * usersong = fgets(buff2, 100, stdin);
-          play(usersong);
+          char buff2[256];
+          printf("loop? enter y or n");
+          char * loop = fgets(buff2, 100, stdin);
+          char buff3[256];
+          int times;
+          if(strcmp(buff2, "y") == 0){
+            printf("how many times?");
+            fgets(buff3, 100, stdin);
+            sscanf(buff3, "%d", times);
+          }
+          play(usersong, loop, times);
         }
 
         else{

@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int play(char * file){
+int play(char * file, char* loop, int times){
 	pid_t p = fork();
 	if(p < 0){
 		perror("fork fail");//output to stderr instead of stdout
@@ -11,6 +11,10 @@ int play(char * file){
 	else if(p == 0){ // child 1
 		char *line = "mpg123 ";
 		strcat(line, file);
+		if(strcmp(loop, "y") == 0){
+			char* loop = "-- loop"
+			strcat(line, "loop")
+		}
 		char *args[100];
 		parse_args(line, args);
 		int a = execvp(args[0], args);

@@ -5,6 +5,28 @@
 #include "linkedlist.h"
 #include "library.h"
 #include <errno.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h> 
+#include <unistd.h>
+#include <string.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <errno.h>
+#include <time.h>
+#include <sys/types.h>
+#include <dirent.h>
+#include <math.h>
+#include <ctype.h>
+#include <stdbool.h>
+#include <sys/wait.h>
+#include <signal.h>
+#include <sys/ipc.h> 
+#include <sys/sem.h>
+#include <sys/shm.h>
+
+#define KEY 244753034//idk why it's this number
+#define BUFFER_SIZE 3000
 
 // void err(int i, char*message){
 //   if(i < 0){
@@ -19,6 +41,25 @@ int err(){
     exit(0);
 }
 
+
+void ccreate(){
+
+    //files
+    int le_file;
+    le_file = open("story.txt", O_RDWR | O_TRUNC | O_CREAT, 0666); //check these permisisons
+    printf("opened le file \n");
+    //this initializes all the shared memory
+    int *data; int shmid;
+    shmid = shmget (KEY, sizeof(int), IPC_CREAT | 0640) ;
+    printf ("shmid: %d\n", shmid) ;
+    data = shmat (shmid, 0, 0); //attach
+    printf("data: %p\n", data);
+    printf ("*data: %d\n", *data) ;
+    //*data = * data + 10; //work with the segment as a normal pointe
+    printf("*data: %d\n", *data) ;
+    shmdt (data); //detach
+}
+
 int main(int argc, char* argv[]){
     srand( time(NULL) );
 
@@ -31,7 +72,7 @@ int main(int argc, char* argv[]){
     add_song(library, "zeph", "world");
     add_song(library, "itzy", "cake");
 
-
+    //MOVE THIS STUFF TO CLIENT LATER
     while(1){
         printf("enter a command: \n");
         char buff[256];

@@ -16,20 +16,21 @@
 // 8. free the entire list
 
 //make new nodes
-struct song_node *memory(char* artist, char* name){
+struct song_node *memory(char* artist, char* name, char* mp3){
     struct song_node *p;
     p = calloc(1, sizeof(struct song_node) ); 
     strcpy(p->name, name);
     strcpy(p->artist, artist);
+    strcpy(p->mp3, mp3);
     return p;
 }
 
 
 //1.
-struct song_node * insert_front(struct song_node * list, char* artist, char* name){
+struct song_node * insert_front(struct song_node * list, char* artist, char* name, char* mp3){
     //different lists for each letter
     struct song_node *new_song;
-    new_song = memory(artist, name);
+    new_song = memory(artist, name, mp3);
     new_song->next = list;
     return new_song;
 }
@@ -45,8 +46,8 @@ int song_cmp(struct song_node* song1, struct song_node* song2) {
     }
 }
 
-struct song_node* insert_in_order(struct song_node* front, char* artist, char* name) {
-    struct song_node* new_song = memory(artist, name);
+struct song_node* insert_in_order(struct song_node* front, char* artist, char* name, char* mp3) {
+    struct song_node* new_song = memory(artist, name, mp3);
     if (front == NULL || song_cmp(new_song, front) < 0) {
         new_song->next = front;
         return new_song;

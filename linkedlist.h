@@ -6,7 +6,7 @@ struct song_node{
   struct song_node *next;
 };
 
-struct song_node *memory(char* artist, char* name);
+struct song_node *memory(char* artist, char* name, char* mp3);
 struct song_node * insert_front(struct song_node * list, char* artist, char* name);
 struct song_node* insert_in_order(struct song_node* front, char* artist, char* name);
 void print_list(struct song_node* front);

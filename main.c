@@ -46,7 +46,7 @@ void ccreate(){
 
     //files
     int le_file;
-    le_file = open("story.txt", O_RDWR | O_TRUNC | O_CREAT, 0666); //check these permisisons
+    le_file = open("songs.txt", O_RDWR | O_TRUNC | O_CREAT, 0666); //check these permisisons
     printf("opened le file \n");
     //this initializes all the shared memory
     int *data; int shmid;
@@ -60,6 +60,64 @@ void ccreate(){
     shmdt (data); //detach
 }
 
+
+void ddisplay(){
+   //dont create but access the semaphore
+    int *data; int shmid;
+    shmid = shmget (KEY, sizeof(int), 0 | 0640) ;
+    data = shmat (shmid, 0, 0); //attach
+  //open the story to read it (bam and data not technically needed rn)
+        int r_file;
+    r_file = open("songs.txt", O_RDONLY, 0);
+    int bam = *data;
+    
+   
+    char buff[BUFFER_SIZE+1];
+    buff[BUFFER_SIZE]=0;
+
+//err();
+    int bytes;
+    while((bytes = read(r_file, buff, BUFFER_SIZE))){
+    if(bytes == -1)err();//all non 0 are true
+
+   // printf("Bytes read: %u",bytes);
+    printf("%s\n",buff);
+    //int bytesread;
+    }
+    //we attached it so we need to detach it
+    shmdt (data); //detach
+}
+
+void rremove(){
+//like in display, we are accessing the shareed memory by the same key
+int shmid;
+    shmid = shmget(KEY, sizeof(int), IPC_CREAT | 0640);
+
+
+
+
+//here we are just printing out the file
+  int r_file;
+    r_file = open("songs.txt", O_RDONLY, 0);
+    char buff[BUFFER_SIZE+1];
+    buff[BUFFER_SIZE]=0;
+
+//err();
+    int bytes;
+    while((bytes = read(r_file, buff, BUFFER_SIZE))){
+    //if(bytes == -1)err();//all non 0 are true
+    printf("helo\n");
+   // printf("Bytes read: %u",bytes);
+    printf("%s\n",buff);
+    //int bytesread;
+    }
+   // ddisplay();
+
+    //we remove it
+    shmctl(shmid, IPC_RMID, 0); //remove the segment
+}
+
+
 int main(int argc, char* argv[]){
     srand( time(NULL) );
 
@@ -71,6 +129,9 @@ int main(int argc, char* argv[]){
     add_song(library, "arctic monkeys", "i wanna be yours");
     add_song(library, "zeph", "world");
     add_song(library, "itzy", "cake");
+
+    //shared memory
+    ccreate();
 
     //MOVE THIS STUFF TO CLIENT LATER
     while(1){
@@ -84,6 +145,8 @@ int main(int argc, char* argv[]){
         if(strcmp( strcommand, "view" )==0){
              printf("you clicked view\n");
            print_library(library); 
+           printf("here goes...\n");
+           ddisplay();
         }
         else if(strcmp( strcommand, "add") == 0){
             char buff1[256];
@@ -101,6 +164,84 @@ int main(int argc, char* argv[]){
             sscanf(userartist, "%s", artist);
             add_song(library, artist, song); 
             print_library(library);
+
+
+
+
+//um
+    int semd = semget(KEY, 1, 0);
+    // struct sembuf {
+    //     short sem_op;
+    //     short sem_num;
+    //     short sem_flag;
+    // };
+
+    struct sembuf sb;
+    sb.sem_num = 0;
+    sb.sem_flg = SEM_UNDO;
+    sb.sem_op = -1; //setting the operation to down
+
+
+
+ 
+
+//err();
+
+    semop(semd, &sb, 1); //perform the operation
+     printf("got the semaphore!\n");
+   
+     int *data; int shmid;
+   shmid = shmget (KEY, sizeof(int), 0 | 0640) ;
+   data = shmat (shmid, 0, 0); //attach
+    
+
+
+    struct stat stat_buffer;
+    int readdata;
+    readdata = open("story.txt", O_RDWR | O_APPEND); //| 0_APPEND
+
+     int r_file;
+    r_file = open("story.txt", O_RDONLY, 0);
+    int bam = *data;
+    
+    lseek( r_file, -1 * bam-1 , SEEK_END );
+    char buff[BUFFER_SIZE+1];
+    buff[BUFFER_SIZE]=0;
+
+
+        int bytes;
+    while((bytes = read(r_file, buff, BUFFER_SIZE))){
+
+    printf("%s\n",buff);
+
+    }
+
+ 
+
+
+    char modify_line[300];//LMFAOO CHECK ALL THE 30s
+    printf("write one line of the story: ");
+
+    fgets(modify_line,300,stdin);
+    printf("the line u wrote: %s\n", modify_line);
+    printf("size of the line: %d", strlen(modify_line));
+   // arr = realloc(arr, sizeof(struct pop_entry) * stat_buffer ->st_size + 23); //15+8+8 = 23
+//     char buff[256];
+
+
+    int size = strlen(modify_line);
+
+    write(readdata,&modify_line,size);
+    *data = size; //work with the segment as a normal pointe
+  // printf("*data: %d\n", *data) ;
+    shmdt (data); //detach
+
+
+
+    sb.sem_op = 1; //set the operation to up
+    semop(semd, &sb, 1); //perform the operation
+
+
         }
         else if(strcmp( strcommand, "shuffle") == 0){
             printf("how many songs do you want to shuffle: ");
@@ -167,11 +308,19 @@ int main(int argc, char* argv[]){
         else if(strcmp( strcommand, "menu") == 0){
             print_menu();
         }
+
+        else if(strcmp( strcommand, "exit") == 0){
+            rremove();
+            exit(0);
+        }
         
         else{
             printf("that's not a command\n");
         }
     }
+
+
+    
 
 
 //args down here

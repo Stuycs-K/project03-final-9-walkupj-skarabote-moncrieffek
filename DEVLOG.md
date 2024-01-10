@@ -30,6 +30,9 @@ Wrote some basic Bass code, tried to compile, major errors. Tried to understand 
 Desperately trying to compile, but always getting an "undefined symbols" error. Will ask K tmrw. ~40 minutes
 Also merged :D
 
+### 2024-01-10 - No more Bass + mpg123 started
+Deleted Bass because it sucked, starting writing functions for play and such using mpg123
+
 ## Eva Skarabot
 
 ### 2024-01-02 - Brief description

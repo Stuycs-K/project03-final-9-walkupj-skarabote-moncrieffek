@@ -57,11 +57,11 @@ int main(int argc, char* argv[]){
             char * usersong = fgets(buff2, 100, stdin);
             char song[100];
             char artist[100];
-            
-            
+            printf("enter the mp3 link: ");
+            char* usermp3 = fgets(buff2, 100, stdin);
             sscanf(usersong, "%s", song);
-            
             sscanf(userartist, "%s", artist);
+            sscanf(usermp3, "%s", usermp3);
             add_song(library, artist, song); 
             print_library(library);
            //we're gonna have to change these things to the fgets thing

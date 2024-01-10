@@ -23,7 +23,7 @@ struct song_node ** make_library(){
 }
 
 //2.
-void add_song(struct song_node** lib, char* artist, char* name) {
+void add_song(struct song_node** lib, char* artist, char* name, char* mp3) {
     int index;
     if (*artist >= 97 && *artist <= 122) {
         index = *artist - 97;
@@ -31,7 +31,7 @@ void add_song(struct song_node** lib, char* artist, char* name) {
     else {
         index = 26;
     }
-    lib[index] = insert_in_order(lib[index], artist, name);
+    lib[index] = insert_in_order(lib[index], artist, name, mp3);
 }
 
 //3.

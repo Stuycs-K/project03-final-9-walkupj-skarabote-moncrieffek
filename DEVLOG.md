@@ -5,9 +5,14 @@
 ### 2024-01-03 - added to proposal
 worked on brainstorming ideas, writing proposal with jo and eva
 
-### 2024-01-04 - began work
+### 2024-01-04, weekend - began work
 finalized idea + plans in class with eva, started work on my tasks
 -> added a basic search function
+
+### 2024-01-04 - worked on music
+found new libraries to play music after realizing bass wasn't working
+tested new libraries, will finalize and begin to implement soon
+-> continued searching for solution to undefined reference error we ran into in class, no progress so far
 
 ## Jo Walkup
 
@@ -49,3 +54,9 @@ Updated the if statements for the commands we would use this program, wrote in c
 
 ### 2024-01-05 - menu
 Created the menu function and tested it so that make run ARGS=menu works as intended; 10 mins
+
+### 2024-01-07 - add, shuffle
+Updated code so that the ARGS=add and shuffle works, also uses user input now; remove is still broken
+
+### 2024-01-07 - search
+Updated code so that the ARGS=search works, also uses user input now; remove is still broken

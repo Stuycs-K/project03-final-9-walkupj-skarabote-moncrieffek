@@ -169,6 +169,13 @@ int main(int argc, char* argv[]){
             print_menu();
         }
 
+        else if(strcmp( strcommand, "play") == 0){
+          char buff[256];
+          printf("enter the song name: ");
+          char * usersong = fgets(buff2, 100, stdin);
+          play(usersong);
+        }
+
         else{
             printf("that's not a command\n");
         }

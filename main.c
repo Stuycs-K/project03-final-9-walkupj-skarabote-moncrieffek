@@ -27,9 +27,9 @@ int main(int argc, char* argv[]){
 
 
     //umm testing lol!
-    add_song(library, "arctic monkeys", "i wanna be yours");
-    add_song(library, "zeph", "world");
-    add_song(library, "itzy", "cake");
+    add_song(library, "arctic monkeys", "i wanna be yours", "filepath here");
+    add_song(library, "zeph", "world", "filepath here");
+    add_song(library, "itzy", "cake", "filepath here");
 
 
     while(1){
@@ -47,18 +47,20 @@ int main(int argc, char* argv[]){
         else if(strcmp( strcommand, "add") == 0){
             char buff1[256];
             char buff2[256];
+            char buff3[256];
             printf("enter the artist name: ");
             char * userartist = fgets(buff1, 100, stdin);
             printf("enter the song name: ");
             char * usersong = fgets(buff2, 100, stdin);
             char song[100];
             char artist[100];
+            char mp3[100];
             printf("enter the mp3 link: ");
-            char* usermp3 = fgets(buff2, 100, stdin);
+            char* usermp3 = fgets(buff3, 100, stdin);
             sscanf(usersong, "%s", song);
             sscanf(userartist, "%s", artist);
             sscanf(usermp3, "%s", usermp3);
-            add_song(library, artist, song); 
+            add_song(library, artist, song, usermp3); 
             print_library(library);
         }
         else if(strcmp( strcommand, "shuffle") == 0){

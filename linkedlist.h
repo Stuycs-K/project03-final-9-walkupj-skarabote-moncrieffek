@@ -5,7 +5,6 @@ struct song_node{
   char artist[100];
   char mp3[100];
   struct song_node *next;
-  char mp3[100];
 };
 
 struct song_node *memory(char* artist, char* name, char* mp3);

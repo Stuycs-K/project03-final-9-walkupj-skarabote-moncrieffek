@@ -16,6 +16,7 @@ tested new libraries, will finalize and begin to implement soon
 
 ### 2024-01-10, weekend - began work
 working with mpg123, editing node fields to include an mp3 to allow easier playback of music files
+-> found more mp3s for nodes at home
 
 ## Jo Walkup
 

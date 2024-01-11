@@ -172,9 +172,9 @@ int main(int argc, char* argv[]){
         else if(strcmp( strcommand, "play") == 0){
           char buff1[256];
           printf("enter the song name: ");
-          char * usersong = fgets(buff2, 100, stdin);
+          char * usersong = fgets(buff1, 100, stdin);
           char buff2[256];
-          printf("loop? enter y or n");
+          printf("loop? enter y or n: ");
           char * loop = fgets(buff2, 100, stdin);
           char buff3[256];
           int times;

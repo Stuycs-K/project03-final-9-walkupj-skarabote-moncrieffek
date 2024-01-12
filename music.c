@@ -17,7 +17,7 @@ int play(char * file){
 	else if(p == 0){ // child 1
 		printf("in child 1\n");
 		char line[512] = "mpg123 ";
-		char path[512] = "~/project3/";
+		char path[512] = "/home/students/2024/jwalkup40/project3/";
 		strcat(path, file);
 		strcat(line, path);
 		printf("line = %s\n", line);

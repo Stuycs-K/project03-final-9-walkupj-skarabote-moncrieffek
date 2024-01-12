@@ -14,9 +14,12 @@ found new libraries to play music after realizing bass wasn't working
 tested new libraries, will finalize and begin to implement soon
 -> continued searching for solution to undefined reference error we ran into in class, no progress so far
 
-### 2024-01-10, weekend - began work
+### 2024-01-10 - edited nodes, found more mp3s for demo
 working with mpg123, editing node fields to include an mp3 to allow easier playback of music files
 -> found more mp3s for nodes at home
+
+### 2024-01-11 - readme and checking work
+edited readme, removed compilation errors and checked that all functions, function headers, structs etc were consistent 
 
 ## Jo Walkup
 

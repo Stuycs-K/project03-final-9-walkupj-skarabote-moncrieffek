@@ -41,6 +41,12 @@ Also merged :D
 ### 2024-01-10 - No more Bass + mpg123 started
 Deleted Bass because it sucked, starting writing functions for play and such using mpg123
 
+### 2024-01-11 - Finished play function
+Wrote the play function- user inputs song title (one word + .mp3), and it forks & execs
+
+### 2024-01-12 - Play fine-tuning
+Play works in current directory, only needs to input title (no .mp3), also will work on pause (?)
+
 ## Eva Skarabot
 
 ### 2024-01-02 - Brief description

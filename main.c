@@ -149,20 +149,20 @@ int main(int argc, char* argv[]){
            ddisplay();
         }
         else if(strcmp( strcommand, "add") == 0){
-            char buff1[256];
-            char buff2[256];
-            printf("enter the artist name: ");
-            char * userartist = fgets(buff1, 100, stdin);
-            printf("enter the song name: ");
-            char * usersong = fgets(buff2, 100, stdin);
-            char song[100];
-            char artist[100];
+            // char buff1[256];
+            // char buff2[256];
+            // printf("enter the artist name: ");
+            // char * userartist = fgets(buff1, 100, stdin);
+            // printf("enter the song name: ");
+            // char * usersong = fgets(buff2, 100, stdin);
+            // char song[100];
+            // char artist[100];
             
             
-            sscanf(usersong, "%s", song);
+            // sscanf(usersong, "%s", song);
             
-            sscanf(userartist, "%s", artist);
-            add_song(library, artist, song); 
+            // sscanf(userartist, "%s", artist);
+            // add_song(library, artist, song); 
             print_library(library);
 
 
@@ -170,11 +170,6 @@ int main(int argc, char* argv[]){
 
 //um
     int semd = semget(KEY, 1, 0);
-    // struct sembuf {
-    //     short sem_op;
-    //     short sem_num;
-    //     short sem_flag;
-    // };
 
     struct sembuf sb;
     sb.sem_num = 0;
@@ -195,13 +190,17 @@ int main(int argc, char* argv[]){
    data = shmat (shmid, 0, 0); //attach
     
 
+   printf("data: %p\n", data);
+    printf ("*data: %d\n", *data) ;
+    *data = * data + 10; //work with the segment as a normal pointe
+    printf("*data: %d\n", *data);
 
     struct stat stat_buffer;
     int readdata;
-    readdata = open("story.txt", O_RDWR | O_APPEND); //| 0_APPEND
+    readdata = open("songs.txt", O_RDWR | O_APPEND); //| 0_APPEND
 
      int r_file;
-    r_file = open("story.txt", O_RDONLY, 0);
+    r_file = open("songs.txt", O_RDONLY, 0);
     int bam = *data;
     
     lseek( r_file, -1 * bam-1 , SEEK_END );
@@ -220,21 +219,40 @@ int main(int argc, char* argv[]){
 
 
     char modify_line[300];//LMFAOO CHECK ALL THE 30s
-    printf("write one line of the story: ");
+    //printf("write one line of the story: ");
+    char buff1[256];
+            char buff2[256];
+            printf("enter the artist name: ");
+            char * userartist = fgets(buff1, 100, stdin);
+            printf("enter the song name: ");
+            char * usersong = fgets(buff2, 100, stdin);
+            char song[100];
+            char artist[100];
+            
+            
+            sscanf(usersong, "%s", song);
+            
+            sscanf(userartist, "%s", artist);
+            add_song(library, artist, song); 
 
-    fgets(modify_line,300,stdin);
-    printf("the line u wrote: %s\n", modify_line);
-    printf("size of the line: %d", strlen(modify_line));
+    //fgets(modify_line,300,stdin);
+    //printf("the line u wrote: %s\n", modify_line);
+    //printf("size of the line: %d", strlen(modify_line));
    // arr = realloc(arr, sizeof(struct pop_entry) * stat_buffer ->st_size + 23); //15+8+8 = 23
 //     char buff[256];
 
 
-    int size = strlen(modify_line);
+    int ssize = strlen(song);
+    int asize = strlen(artist);
+    int size = strlen(song) + strlen(artist);
 
-    write(readdata,&modify_line,size);
+    write(readdata,&song,ssize);
+    write(readdata,",", 1);
+    write(readdata,&artist,asize);
+    write(readdata,"\n", 1);
     *data = size; //work with the segment as a normal pointe
   // printf("*data: %d\n", *data) ;
-    shmdt (data); //detach
+   // shmdt (data); //detach
 
 
 
@@ -310,8 +328,11 @@ int main(int argc, char* argv[]){
         }
 
         else if(strcmp( strcommand, "exit") == 0){
-            rremove();
+           // rremove();
             exit(0);
+        }
+        else if(strcmp( strcommand, "clear") == 0){
+           rremove();
         }
         
         else{

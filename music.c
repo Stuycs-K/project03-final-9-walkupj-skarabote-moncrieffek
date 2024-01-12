@@ -26,6 +26,8 @@ int play(char * file){
 		// 	strcat(loop, times);
 		// 	strcat(line, loop);
 		// }
+		line = strtok(line, "\n");
+		printf("line = %s\n", line);
 		char *args[100];
 		parse_args(line, args);
 		int a = execvp(args[0], args);

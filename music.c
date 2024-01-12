@@ -26,10 +26,11 @@ int play(char * file){
 		// 	strcat(loop, times);
 		// 	strcat(line, loop);
 		// }
-		line = strtok(line, "\n");
-		printf("line = %s\n", line);
+		char * res;
+		res = strtok(line, "\n");
+		printf("res = %s\n", res);
 		char *args[100];
-		parse_args(line, args);
+		parse_args(res, args);
 		int a = execvp(args[0], args);
 		exit(0);
 	}

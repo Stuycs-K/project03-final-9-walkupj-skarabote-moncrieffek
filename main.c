@@ -55,7 +55,7 @@ void ccreate(){
     data = shmat (shmid, 0, 0); //attach
     printf("data: %p\n", data);
     printf ("*data: %d\n", *data) ;
-    //*data = * data + 10; //work with the segment as a normal pointe
+    *data = * data + 10; //work with the segment as a normal pointe
     printf("*data: %d\n", *data) ;
     shmdt (data); //detach
 }
@@ -130,8 +130,12 @@ int main(int argc, char* argv[]){
     add_song(library, "zeph", "world");
     add_song(library, "itzy", "cake");
 
+    
+
     //shared memory
-    ccreate();
+    ccreate();//i think it's because a new shared memory is being created every time
+
+
 
     //MOVE THIS STUFF TO CLIENT LATER
     while(1){
@@ -146,9 +150,14 @@ int main(int argc, char* argv[]){
              printf("you clicked view\n");
            print_library(library); 
            printf("here goes...\n");
-           ddisplay();
+         //  ddisplay();
         }
         else if(strcmp( strcommand, "add") == 0){
+            //attach the shared memory
+    int *data; int shmid;
+   shmid = shmget (KEY, sizeof(int), 0 | 0640) ;
+   data = shmat (shmid, 0, 0); //attach
+           // ccreate();
             // char buff1[256];
             // char buff2[256];
             // printf("enter the artist name: ");
@@ -176,7 +185,7 @@ int main(int argc, char* argv[]){
     sb.sem_flg = SEM_UNDO;
     sb.sem_op = -1; //setting the operation to down
 
-
+printf("did some stuff\n");
 
  
 
@@ -185,12 +194,10 @@ int main(int argc, char* argv[]){
     semop(semd, &sb, 1); //perform the operation
      printf("got the semaphore!\n");
    
-     int *data; int shmid;
-   shmid = shmget (KEY, sizeof(int), 0 | 0640) ;
-   data = shmat (shmid, 0, 0); //attach
+     
     
 
-   printf("data: %p\n", data);
+    printf("data: %p\n", data);
     printf ("*data: %d\n", *data) ;
     *data = * data + 10; //work with the segment as a normal pointe
     printf("*data: %d\n", *data);
@@ -199,7 +206,7 @@ int main(int argc, char* argv[]){
     int readdata;
     readdata = open("songs.txt", O_RDWR | O_APPEND); //| 0_APPEND
 
-     int r_file;
+    int r_file;
     r_file = open("songs.txt", O_RDONLY, 0);
     int bam = *data;
     
@@ -252,13 +259,13 @@ int main(int argc, char* argv[]){
     write(readdata,"\n", 1);
     *data = size; //work with the segment as a normal pointe
   // printf("*data: %d\n", *data) ;
-   // shmdt (data); //detach
+    
 
 
 
     sb.sem_op = 1; //set the operation to up
     semop(semd, &sb, 1); //perform the operation
-
+shmdt (data); //detach
 
         }
         else if(strcmp( strcommand, "shuffle") == 0){
@@ -338,6 +345,8 @@ int main(int argc, char* argv[]){
         else{
             printf("that's not a command\n");
         }
+
+        
     }
 
 

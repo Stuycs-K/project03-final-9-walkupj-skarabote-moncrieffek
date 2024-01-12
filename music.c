@@ -7,7 +7,7 @@
 
 // int play(char * file, char* loop, char *times){
 int play(char * file){
-	printf("i sure hope this prints\n");
+	printf("forking and playing your song\n");
 	pid_t p = fork();
 	if(p < 0){
 		printf("wuh oh\n");
@@ -15,12 +15,14 @@ int play(char * file){
 		exit(1);
 	}
 	else if(p == 0){ // child 1
-		printf("in child 1\n");
+		//printf("in child 1\n");
 		char line[512] = "mpg123 ";
-		char path[512] = "/home/students/2024/jwalkup40/project3/";
+		char path[512] = "./";
+		file = strtok(file, "\n");
+		strcat(file, ".mp3");
 		strcat(path, file);
 		strcat(line, path);
-		printf("line = %s\n", line);
+		//printf("line = %s\n", line);
 		// if(strcmp(loop, "y") == 0){
 		// 	char* loop = "-- loop";
 		// 	strcat(loop, times);
@@ -28,7 +30,7 @@ int play(char * file){
 		// }
 		char * res;
 		res = strtok(line, "\n");
-		printf("res = %s\n", res);
+		//printf("res = %s\n", res);
 		char *args[100];
 		parse_args(res, args);
 		int a = execvp(args[0], args);

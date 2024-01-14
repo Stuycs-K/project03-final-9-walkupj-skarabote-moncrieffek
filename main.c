@@ -69,9 +69,9 @@ int main(int argc, char* argv[]){
 
 
     //umm testing lol!
-    add_song(library, "arctic monkeys", "i wanna be yours");
-    add_song(library, "zeph", "world");
-    add_song(library, "itzy", "cake");
+    add_song(library, "arctic monkeys", "i wanna be yours", "filepath here");
+    add_song(library, "zeph", "world", "filepath here");
+    add_song(library, "itzy", "cake", "filepath here");
 
     //MOVE THIS STUFF TO CLIENT LATER
     while(1){
@@ -89,6 +89,7 @@ int main(int argc, char* argv[]){
         else if(strcmp( strcommand, "add") == 0){
             char buff1[256];
             char buff2[256];
+            char buff3[256];
             printf("enter the artist name: ");
             char * userartist = fgets(buff1, 100, stdin);
             printf("enter the song name: ");

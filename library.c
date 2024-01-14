@@ -23,7 +23,7 @@ struct song_node ** make_library(){
 }
 
 //2.
-void add_song(struct song_node** lib, char* artist, char* name) {
+void add_song(struct song_node** lib, char* artist, char* name, char* mp3) {
     int index;
     if (*artist >= 97 && *artist <= 122) {
         index = *artist - 97;
@@ -31,7 +31,7 @@ void add_song(struct song_node** lib, char* artist, char* name) {
     else {
         index = 26;
     }
-    lib[index] = insert_in_order(lib[index], artist, name);
+    lib[index] = insert_in_order(lib[index], artist, name, mp3);
 }
 
 //3.
@@ -48,7 +48,7 @@ struct song_node * search_song(struct song_node ** lib, char* artist, char* name
 }
 
 //4.
-struct song_node* search_artist(struct song_node** lib, char* artist) {
+struct song_node* artist_first_song(struct song_node** lib, char* artist) {
     struct song_node* front;
     if (*artist >= 97 && *artist <= 122) {
         front = lib[*artist - 97];
@@ -76,7 +76,7 @@ void print_letter(struct song_node** lib, char letter){
 
 //6.
 void print_artist(struct song_node** lib, char* artist) {
-    struct song_node* front = search_artist(lib, artist);
+    struct song_node* front = artist_first_song(lib, artist);
     printf("[ ");
     while (front != NULL && strcmp(front->artist, artist) == 0) {
         printf("{%s, %s} | ", front->artist, front->name);
@@ -112,7 +112,7 @@ void shuffle(struct song_node** lib, int n) {
             index = abs(rand()) % 27;
         }
         struct song_node* randsong = random_song(lib[index]);
-        front = insert_front(front, randsong->artist, randsong->name);
+        front = insert_front(front, randsong->artist, randsong->name, randsong->mp3);
     }
     print_list(front);
     free_list(front);
@@ -157,40 +157,38 @@ void clear_library(struct song_node** lib) {
     }
 }
 
-void print_node(struct node *s){ 
-  if(s != NULL) printf("%s by %s\n", s->song, s->artist);
+void print_node(struct song_node *s){ 
+  if(s != NULL) printf("%s by %s\n", s->mp3, s->artist);
 }
 
-void search_artist(struct node *front, char *artist){
-    struct node *current = front;
+void search_artist(struct song_node *front, char *artist){
+    struct song_node *current = front;
     while(current){
         if(strcmp(current->artist, artist) == 0){
             print_node(current);
         }
         current = current->next;
     }
-    return NULL;
+}
 
-void search_title(struct node *front, char *name){
-    struct node *current = front;
+void search_title(struct song_node *front, char *name){
+    struct song_node *current = front;
     while(current){
         if(strcmp(current->name, name) == 0){
            print_node(current);
         }
         current = current->next;
     }
-    return NULL;
 }
 
-void search_letter(struct node *front, char *letter){
-    struct node *current = front;
+void search_letter(struct song_node *front, char *letter){
+    struct song_node *current = front;
     while(current){
-        if(strcmp(current->artist[0], letter) == 0 || strcmp(current->name[0], letter) == 0])){
+        if(strcmp(current->artist[0], letter) == 0 || strcmp(current->name[0], letter) == 0){
             print_node(current);
         }
         current = current->next;
-    }
-    return NULL;
+  }
 }
 
 //11. extra !!

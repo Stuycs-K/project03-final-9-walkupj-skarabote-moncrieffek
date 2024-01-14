@@ -46,7 +46,7 @@ int song_cmp(struct song_node* song1, struct song_node* song2) {
     }
 }
 
-struct song_node* insert_in_order(struct song_node* front, char* artist, char* name, mp3) {
+struct song_node* insert_in_order(struct song_node* front, char* artist, char* name, char* mp3) {
     struct song_node* new_song = memory(artist, name, mp3);
     if (front == NULL || song_cmp(new_song, front) < 0) {
         new_song->next = front;

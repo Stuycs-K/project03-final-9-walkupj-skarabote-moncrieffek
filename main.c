@@ -174,6 +174,7 @@ int main(int argc, char* argv[]){
           char buff[256];
           printf("if you want to play the entire playlist, enter y. else, enter n: ");
           fgets(buff, 256, stdin);
+          buff = strtok(buff, "\n");
           if(strcmp(buff, "y") == 0){
             play_library(library);
           }

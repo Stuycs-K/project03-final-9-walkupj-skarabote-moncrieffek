@@ -171,24 +171,28 @@ int main(int argc, char* argv[]){
         }
 
         else if(strcmp( strcommand, "play") == 0){
-          char buff1[256];
-          printf("enter the song name: ");
-          char * usersong = fgets(buff1, 100, stdin);
-          char buff2[256];
-          // printf("loop? enter y or n: ");
-          // char * loop = fgets(buff2, 100, stdin);
-          // char buff3[256];
-          // int times;
-          // if(strcmp(buff2, "y") == 0){
-          //   printf("how many times? (say -1 for infinite): ");
-          //   fgets(buff3, 100, stdin);
-          //   sscanf(buff3, "%d", times);
-          // }
-          play(usersong);
-        }
-
-        else if(strcmp( strcommand, "play library") == 0){
-          play_library(library);
+          char buff[256];
+          printf("if you want to play the entire playlist, enter y. else, enter n: ");
+          fgets(buff, 256, stdin);
+          if(strcmp(buff, "y") == 0){
+            play_library(library);
+          }
+          else{
+            char buff1[256];
+            printf("enter the song name: ");
+            char * usersong = fgets(buff1, 100, stdin);
+            char buff2[256];
+            // printf("loop? enter y or n: ");
+            // char * loop = fgets(buff2, 100, stdin);
+            // char buff3[256];
+            // int times;
+            // if(strcmp(buff2, "y") == 0){
+            //   printf("how many times? (say -1 for infinite): ");
+            //   fgets(buff3, 100, stdin);
+            //   sscanf(buff3, "%d", times);
+            // }
+            play(usersong);
+          }
         }
 
         else{

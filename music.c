@@ -53,6 +53,14 @@ void play_library(struct song_node** lib){
     }
 }
 
+void play_library(char* file, int times){
+    for(int i=0; i<times; i++){
+            play(file);
+		sleep(214);
+        }
+    }
+}
+
 void parse_args(char * line, char ** arg_ary){
   char * sep;
   int index = 0;

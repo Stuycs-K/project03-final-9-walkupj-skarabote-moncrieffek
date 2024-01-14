@@ -101,7 +101,7 @@ int main(int argc, char* argv[]){
             sscanf(usersong, "%s", song);
 
             sscanf(userartist, "%s", artist);
-            add_song(library, artist, song);
+            add_song(library, artist, song, song);
             print_library(library);
         }
         else if(strcmp( strcommand, "shuffle") == 0){
@@ -175,16 +175,16 @@ int main(int argc, char* argv[]){
           printf("enter the song name: ");
           char * usersong = fgets(buff1, 100, stdin);
           char buff2[256];
-          printf("loop? enter y or n: ");
-          char * loop = fgets(buff2, 100, stdin);
-          char buff3[256];
-          int times;
-          if(strcmp(buff2, "y") == 0){
-            printf("how many times? (say -1 for infinite): ");
-            fgets(buff3, 100, stdin);
-            sscanf(buff3, "%d", times);
-          }
-          play(usersong, loop, times);
+          // printf("loop? enter y or n: ");
+          // char * loop = fgets(buff2, 100, stdin);
+          // char buff3[256];
+          // int times;
+          // if(strcmp(buff2, "y") == 0){
+          //   printf("how many times? (say -1 for infinite): ");
+          //   fgets(buff3, 100, stdin);
+          //   sscanf(buff3, "%d", times);
+          // }
+          play(usersong);
         }
 
         else{

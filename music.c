@@ -4,6 +4,8 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include "music.h"
+#include "linkedlist.h"
+#include "library.h"
 
 // int play(char * file, char* loop, char *times){
 int play(char * file){
@@ -39,6 +41,17 @@ int play(char * file){
 	return p;
 }
 
+void play_library(struct song_node** lib){
+    int letter = 97;
+    for(int i=0; i<26; i++){
+        struct song_node* letter_list = lib[letter];
+        if(lib[i]){
+            play(lib[i]->name);
+        }
+        letter++;
+    }
+}
+
 void parse_args(char * line, char ** arg_ary){
   char * sep;
   int index = 0;
@@ -48,22 +61,22 @@ void parse_args(char * line, char ** arg_ary){
   }
   arg_ary[index] = NULL;
 }
-
-int main(){
-	char usersong[256];
-    printf("enter the song name: ");
-    fgets(usersong, 256, stdin);
-	printf("usersong = %s\n", usersong);
-    // printf("loop? enter y or n: ");
-    // char loop[256];
-	// fgets(loop, 256, stdin);
-	// printf("loop = %s\n", loop);
-    // char times[256];
-    // if(strcmp(loop, "y") == 0){
-    // 	printf("how many times?");
-    // 	fgets(times, 256, stdin);
-	// 	printf("times = %s\n", times);
-    // }
-    // play(usersong, loop, times);
-	play(usersong);
-}
+// 
+// int main(){
+// 	char usersong[256];
+//     printf("enter the song name: ");
+//     fgets(usersong, 256, stdin);
+// 	printf("usersong = %s\n", usersong);
+//     // printf("loop? enter y or n: ");
+//     // char loop[256];
+// 	// fgets(loop, 256, stdin);
+// 	// printf("loop = %s\n", loop);
+//     // char times[256];
+//     // if(strcmp(loop, "y") == 0){
+//     // 	printf("how many times?");
+//     // 	fgets(times, 256, stdin);
+// 	// 	printf("times = %s\n", times);
+//     // }
+//     // play(usersong, loop, times);
+// 	play(usersong);
+// }

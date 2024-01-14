@@ -187,6 +187,10 @@ int main(int argc, char* argv[]){
           play(usersong);
         }
 
+        else if(strcmp( strcommand, "play library") == 0){
+          play_library(library);
+        }
+
         else{
             printf("that's not a command\n");
         }

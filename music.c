@@ -49,6 +49,7 @@ void play_library(struct song_node** lib){
             play(lib[i]->name);
         }
         letter++;
+				sleep(120);
     }
 }
 
@@ -61,7 +62,7 @@ void parse_args(char * line, char ** arg_ary){
   }
   arg_ary[index] = NULL;
 }
-// 
+//
 // int main(){
 // 	char usersong[256];
 //     printf("enter the song name: ");

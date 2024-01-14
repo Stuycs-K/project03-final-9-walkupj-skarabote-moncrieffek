@@ -180,7 +180,7 @@ int main(int argc, char* argv[]){
           char buff3[256];
           int times;
           if(strcmp(buff2, "y") == 0){
-            printf("how many times?");
+            printf("how many times? (say -1 for infinite): ");
             fgets(buff3, 100, stdin);
             sscanf(buff3, "%d", times);
           }

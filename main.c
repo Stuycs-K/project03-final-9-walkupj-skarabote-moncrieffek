@@ -69,9 +69,9 @@ int main(int argc, char* argv[]){
 
 
     //umm testing lol!
-    add_song(library, "arctic monkeys", "i wanna be yours", "filepath here");
-    add_song(library, "zeph", "world", "filepath here");
-    add_song(library, "itzy", "cake", "filepath here");
+    add_song(library, "idk", "rain", "rain.mp3");
+    add_song(library, "yasuha", "flyday", "flyday.mp3");
+  //  add_song(library, "itzy", "cake", "filepath here");
 
     //MOVE THIS STUFF TO CLIENT LATER
     while(1){

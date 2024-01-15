@@ -73,6 +73,18 @@ void print_letter(struct song_node** lib, char letter){
     //printf("]\n");
 }
 
+// void write_letter(struct song_node** lib, char letter, int readdata){
+//     //printf("[ ");
+//     if(letter >= 97 && letter <= 122){
+//         write_list((lib[letter-97]), readdata);
+//     }
+//     else{
+//         write_list(lib[26], readdata);
+//        // print_list(lib[26]);
+//     }
+//     //printf("]\n");
+// }
+
 
 //6.
 void print_artist(struct song_node** lib, char* artist) {
@@ -102,6 +114,23 @@ void print_library(struct song_node** lib){
         print_letter(lib, 123);
     }
 }
+
+// void write_library(struct song_node** lib, int readdata){
+//     int letter = 97;
+//     for(int i=0; i<26; i++){
+//         struct song_node* letter_list = lib[letter];
+//         if(lib[i]){
+//             //printf("%c: ", i+97);
+//             write_letter(lib, i+97, readdata);
+//         }
+//         letter++;
+//     }
+//     if(lib[26]){
+//        // printf("special characters: ");
+//         write_letter(lib, 123, readdata);
+//     }
+// }
+
 
 //8.
 void shuffle(struct song_node** lib, int n) {
@@ -151,11 +180,11 @@ void remove_song_lib(struct song_node** lib, char* artist, char* name){
 
 
 //10.
-void clear_library(struct song_node** lib) {
-    for (int i = 0; i < 27; i++) {
-        lib[i] = free_list(lib[i]);
-    }
-}
+// void clear_library(struct song_node** lib) {
+//     for (int i = 0; i < 27; i++) {
+//         lib[i] = free_list(lib[i]);
+//     }
+// }
 
 void print_node(struct song_node *s){ 
   if(s != NULL) printf("%s by %s\n", s->mp3, s->artist);
@@ -201,3 +230,4 @@ void print_menu(){
     printf("search ___: Search for songs within the playlist by the song title and artist, or first letters\n");
     printf("menu: Print a list of user commands\n");
 }
+

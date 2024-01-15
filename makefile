@@ -15,32 +15,28 @@ clean:
 	@rm *~
 
 
-
 # notDefault:
 # 	@echo "nothing is run"
-# compile: client1 server2
+# compile: client server
 
-# client1: basic_client.o pipe_networking.o
-# 	@gcc -o client1 basic_client.o pipe_networking.o
+# client: client.o networking.o
+# 	@gcc -o client client.o networking.o
 
-# server2: forking_server.o pipe_networking.o
-# 	@gcc -o server2 forking_server.o pipe_networking.o
+# server: server.o networking.o
+# 	@gcc -o server server.o networking.o
 
-# server: server2
-# 	@./server2
 
-# client: client1
-# 	@./client1
+# client.o: client.c networking.h
+# 	@gcc -c client.c
 
-# basic_client.o: basic_client.c pipe_networking.h
-# 	@gcc -c basic_client.c
+# server.o: server.c networking.h
+# 	@gcc -c server.c
 
-# forking_server.o: forking_server.c pipe_networking.h
-# 	@gcc -c forking_server.c
-
-# pipe_networking.o: pipe_networking.c pipe_networking.h
-# 	@gcc -c pipe_networking.c
+# networking.o: networking.c networking.h
+# 	@gcc -c networking.c
 
 # clean:
 # 	@rm *.o
+# 	@rm server
+# 	@rm client
 # 	@rm *~

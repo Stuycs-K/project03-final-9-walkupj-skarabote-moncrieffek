@@ -264,15 +264,15 @@ printf("did some stuff\n");
 //err();
 
     semop(semd, &sb, 1); //perform the operation
-     printf("got the semaphore!\n");
+    // printf("got the semaphore!\n");
    
      
     
 
-    printf("data: %p\n", data);
-    printf ("*data: %d\n", *data) ;
-   // *data = * data + 10; //work with the segment as a normal pointe
-    printf("*data: %d\n", *data);
+//     printf("data: %p\n", data);
+//     printf ("*data: %d\n", *data) ;
+//    // *data = * data + 10; //work with the segment as a normal pointe
+//     printf("*data: %d\n", *data);
 
     struct stat stat_buffer;
     int readdata;
@@ -321,16 +321,16 @@ printf("did some stuff\n");
 //     char buff[256];
 
 
-    int ssize = strlen(song);
-    int asize = strlen(artist);
-    int size = strlen(song) + strlen(artist);
+//     int ssize = strlen(song);
+//     int asize = strlen(artist);
+//     int size = strlen(song) + strlen(artist);
 
-    write(readdata,&song,ssize);
-    write(readdata,",", 1);
-    write(readdata,&artist,asize);
-    write(readdata,",", 1);
-    *data = size; //work with the segment as a normal pointe
-  // printf("*data: %d\n", *data) ;
+//     write(readdata,&song,ssize);
+//     write(readdata,",", 1);
+//     write(readdata,&artist,asize);
+//     write(readdata,",", 1);
+//     *data = size; //work with the segment as a normal pointe
+//   // printf("*data: %d\n", *data) ;
     
 
 

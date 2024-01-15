@@ -1,4 +1,39 @@
-#include "networking.h"
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h> 
+#include <time.h>
+#include "linkedlist.h"
+#include "library.h"
+#include <errno.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h> 
+#include <unistd.h>
+#include <string.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <errno.h>
+#include <time.h>
+#include <sys/types.h>
+#include <dirent.h>
+#include <math.h>
+#include <ctype.h>
+#include <stdbool.h>
+#include <sys/wait.h>
+#include <signal.h>
+#include <sys/ipc.h> 
+#include <sys/sem.h>
+#include <sys/shm.h>
+#include <sys/socket.h> 
+#include <netdb.h>
+
+
+#ifndef NETWORKING_H
+#define NETWORKING_H
+#define PORT "19231"
+#define BUFFER_SIZE 1024
+#endif
+// #include "networking.h"
 //don't need a sig handler bc theres no pipe to delete
 /*Connect to the server
  *return the to_server socket descriptor

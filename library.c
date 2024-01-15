@@ -73,6 +73,18 @@ void print_letter(struct song_node** lib, char letter){
     //printf("]\n");
 }
 
+// void write_letter(struct song_node** lib, char letter, int readdata){
+//     //printf("[ ");
+//     if(letter >= 97 && letter <= 122){
+//         write_list((lib[letter-97]), readdata);
+//     }
+//     else{
+//         write_list(lib[26], readdata);
+//        // print_list(lib[26]);
+//     }
+//     //printf("]\n");
+// }
+
 
 //6.
 void print_artist(struct song_node** lib, char* artist) {
@@ -102,6 +114,23 @@ void print_library(struct song_node** lib){
         print_letter(lib, 123);
     }
 }
+
+// void write_library(struct song_node** lib, int readdata){
+//     int letter = 97;
+//     for(int i=0; i<26; i++){
+//         struct song_node* letter_list = lib[letter];
+//         if(lib[i]){
+//             //printf("%c: ", i+97);
+//             write_letter(lib, i+97, readdata);
+//         }
+//         letter++;
+//     }
+//     if(lib[26]){
+//        // printf("special characters: ");
+//         write_letter(lib, 123, readdata);
+//     }
+// }
+
 
 //8.
 void shuffle(struct song_node** lib, int n) {

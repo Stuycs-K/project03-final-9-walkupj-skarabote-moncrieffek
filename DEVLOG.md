@@ -19,11 +19,10 @@ working with mpg123, editing node fields to include an mp3 to allow easier playb
 -> found more mp3s for nodes at home
 
 ### 2024-01-11 - readme and checking work
-<<<<<<< HEAD
-edited readme, removed compilation errors and checked that all functions, function headers, structs etc were consistent 
-=======
 edited readme, removed compilation errors and checked that all functions, function headers, structs etc were consistent
->>>>>>> 2bbd12b93a42d5f6d7f1ebb7875daf17d82baffd
+
+### 2024-01-12, weekend - checking work, added loop
+edited previous functions, main to make sure everything worked well with each other. added looping
 
 ## Jo Walkup
 

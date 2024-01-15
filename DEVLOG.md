@@ -19,7 +19,7 @@ working with mpg123, editing node fields to include an mp3 to allow easier playb
 -> found more mp3s for nodes at home
 
 ### 2024-01-11 - readme and checking work
-edited readme, removed compilation errors and checked that all functions, function headers, structs etc were consistent 
+edited readme, removed compilation errors and checked that all functions, function headers, structs etc were consistent
 
 ## Jo Walkup
 
@@ -50,6 +50,9 @@ Wrote the play function- user inputs song title (one word + .mp3), and it forks 
 
 ### 2024-01-12 - Play fine-tuning
 Play works in current directory, only needs to input title (no .mp3), also will work on pause (?)
+
+### 2024-01-13 - Looping play
+Able to play the entire playlist
 
 ## Eva Skarabot
 

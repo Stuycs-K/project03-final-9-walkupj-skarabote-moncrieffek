@@ -78,6 +78,33 @@ void print_list(struct song_node* front) {
     printf("]\n");
 }
 
+// void write_list(struct song_node* front, int readdata) {
+
+
+//     char * wowa = front->artist;
+//         char * wows = front->name;
+
+    
+//     int ssize = strlen(wows);
+//     int asize = strlen(wowa);
+//     int size = strlen(wows) + strlen(wowa);
+
+
+//     char ** arr;
+//     // write(readdata,&wows,ssize);
+//     // write(readdata,",", 1);
+//     // write(readdata,&wowa,asize);
+//     // write(readdata,",", 1);
+
+//     front = front->next;
+//   //  printf("[ ");
+//     // while (front != NULL) {
+//     //     printf("{%s, %s} | ", front->artist, front->name);
+//     //     front = front->next;
+//     // }
+//    // printf("]\n");
+// }
+
 //4. 
 //find and return a pointer to a node based on artist and song name
 struct song_node* find_song(struct song_node* front, char* artist, char* name) {

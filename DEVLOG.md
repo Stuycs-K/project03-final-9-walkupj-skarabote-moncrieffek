@@ -57,3 +57,12 @@ Updated code so that the ARGS=add and shuffle works, also uses user input now; r
 
 ### 2024-01-07 - search
 Updated code so that the ARGS=search works, also uses user input now; remove is still broken
+
+### 2024-01-08 - search
+Made it a looping program that commands could be put in
+
+### 2024-01-09 - search
+Included some shared memory
+
+### 2024-01-09 - search
+added an exit

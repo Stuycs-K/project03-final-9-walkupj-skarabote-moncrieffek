@@ -197,10 +197,10 @@ int main(int argc, char* argv[]){
 
 
 
-    //umm testing lol!
-    add_song(library, "arctic monkeys", "i wanna be yours");
-    add_song(library, "zeph", "world");
-    add_song(library, "itzy", "cake");
+    // //umm testing lol!
+    // add_song(library, "arctic monkeys", "i wanna be yours");
+    // add_song(library, "zeph", "world");
+    // add_song(library, "itzy", "cake");
 
     
 
@@ -408,11 +408,65 @@ shmdt (data); //detach
 
         else if(strcmp( strcommand, "exit") == 0){
            // rremove();
+
+
+//THIS IS THE ACTUAL WRITING STUFF
+    int filee;
+    filee = open("songs.txt", O_RDWR | O_APPEND); //| 0_APPEND
+   // write_library(library, readdata);
+for(int i=0; i<26; i++){
+    int letter = i+71;
+    
+
+//printf("letter: %s", letter);
+// for(int i=0; i<26; i++){
+//         struct song_node* letter_list = lib[letter];
+//         if(lib[i]){
+//             printf("%c: ", i+97);
+//             print_letter(lib, i+97);
+//         }
+//         letter++;
+//     }
+// err();
+ struct song_node* front = library[i];
+// err();
+    while (front != NULL) { //front is a song_node that's inputed lol (library[letter])
+        char * wowa = front->artist;
+        char * wows = front->name;
+
+    
+    int ssize = strlen(wows);
+    int asize = strlen(wowa);
+    int size = strlen(wows) + strlen(wowa);
+
+            char ssong[100];
+            char aartist[100];
+
+    sscanf(wows, "%s", ssong);
+    sscanf(wowa, "%s", aartist);
+
+    write(filee,&ssong,ssize);
+    write(filee,",", 1);
+    write(filee,&aartist,asize);
+    write(filee,",", 1);
+
+    front = front->next;
+    }
+   // letter ++;
+
+
+
+
+
+
+}
+
             exit(0);
             //take everything out of the structs and put it in the shared memory file
         }
         else if(strcmp( strcommand, "clear") == 0){
            rremove();
+           //clear_library(library);
         }
         
         else{

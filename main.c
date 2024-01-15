@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h> 
+#include <stdlib.h>
 #include <time.h>
 #include "linkedlist.h"
 #include "library.h"
+#include "music.h"
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <fcntl.h> 
+#include <fcntl.h>
 #include <unistd.h>
 #include <string.h>
 #include <string.h>
@@ -21,7 +22,7 @@
 #include <stdbool.h>
 #include <sys/wait.h>
 #include <signal.h>
-#include <sys/ipc.h> 
+#include <sys/ipc.h>
 #include <sys/sem.h>
 #include <sys/shm.h>
 
@@ -117,7 +118,7 @@ int shmid;
     shmctl(shmid, IPC_RMID, 0); //remove the segment
 }
 
-int parse_args( char * line, char ** arg_ary ){
+int parse_argse( char * line, char ** arg_ary ){
     int i = 0;
     while(line != NULL){
         
@@ -147,15 +148,15 @@ int main(int argc, char* argv[]){
         char * entries[64];
         char * line = buff;
         int num;
-        num = parse_args( line, entries );
-        printf("NUMBER OF SONGS: %d", num/2);
+        num = parse_argse( line, entries );
+       // printf("NUMBER OF SONGS: %d", num/2);
         int i=0;
         int g=0;
        
       while (g < num){
       //      err();
       //err();
-       printf("ENTRY%d: %s",i, entries[i]);
+      // printf("ENTRY%d: %s",i, entries[i]);
        
         // printf("ENTRY: %s", entries[0]);
         // printf("ENTRY: %s", entries[1]);
@@ -193,23 +194,16 @@ int main(int argc, char* argv[]){
 //     }
 
 
-
-
-
-
-
-
-    // //umm testing lol!
-    // add_song(library, "arctic monkeys", "i wanna be yours");
-    // add_song(library, "zeph", "world");
-    // add_song(library, "itzy", "cake");
-
     
 
     //shared memory
     ccreate();//i think it's because a new shared memory is being created every time
 
 
+   
+    add_song(library, "idk", "rain", "rain.mp3");
+    add_song(library, "yasuha", "flyday", "flyday.mp3");
+  
 
     //MOVE THIS STUFF TO CLIENT LATER
     while(1){
@@ -222,9 +216,9 @@ int main(int argc, char* argv[]){
 
         if(strcmp( strcommand, "view" )==0){
              printf("you clicked view\n");
+
            print_library(library); 
-         //  printf("here goes...\n");
-         //  ddisplay();
+
         }
         else if(strcmp( strcommand, "add") == 0){
             //attach the shared memory
@@ -310,6 +304,7 @@ printf("did some stuff\n");
             char * usersong = fgets(buff2, 100, stdin);
             char song[100];
             char artist[100];
+
             char mp3[100];
             printf("enter the mp3 link: ");
             char* usermp3 = fgets(buff3, 100, stdin);
@@ -318,6 +313,10 @@ printf("did some stuff\n");
 
             sscanf(usermp3, "%s", usermp3);
             add_song(library, artist, song, usermp3); 
+
+
+
+
             print_library(library);
 
             //add_song(library, artist, song); 
@@ -353,8 +352,8 @@ shmdt (data); //detach
             printf("how many songs do you want to shuffle: ");
             char buff[256];
             char * data = fgets(buff, 100, stdin);
-    
-            int shuffleint; 
+
+            int shuffleint;
             sscanf(data, "%d", &shuffleint);
             //change 5 to the length of the library
            shuffle(library, shuffleint);
@@ -368,12 +367,12 @@ shmdt (data); //detach
             char * usersong = fgets(buff2, 100, stdin);
             char song[100];
             char artist[100];
-            
+
 
             sscanf(usersong, "%s", song);
-            
+
             sscanf(userartist, "%s", artist);
-            //okay htis is the search wehn u know the whole name, 
+            //okay htis is the search wehn u know the whole name,
             //for the search by first letter we'll have to use more linked list stuff
             // struct song_node* song = search_song(library, "black sabbath", "orchid");
             // printf("found {%s, %s}\n", song->artist, song->name);
@@ -403,10 +402,10 @@ shmdt (data); //detach
             strtok(artist, "\n");
             // printf("%s", song);
             remove_song_lib(library, song, artist);
-            // err(); 
+            // err();
             print_library(library);
 
-            
+
             // remove_song_lib(library, "aphex twin", "ageispolis");
             //change those artist and song to fgets
             // remove_song_lib(library, "aphex twin", "ageispolis");
@@ -478,6 +477,33 @@ for(int i=0; i<26; i++){
            //clear_library(library);
         }
         
+        else if(strcmp( strcommand, "play") == 0){
+          char buff[256];
+          printf("if you want to play the entire playlist, enter y. else, enter n: ");
+          fgets(buff, 256, stdin);
+          char *x = strtok(buff, "\n");
+          if(strcmp(x, "y") == 0){
+            play_library(library);
+          }
+          else{
+            char buff1[256];
+            printf("enter the song name: ");
+            char * usersong = fgets(buff1, 100, stdin);
+            char buff2[256];
+            printf("loop? enter y or n: ");
+            char * loop = fgets(buff2, 100, stdin);
+            char buff3[256];
+            int times;
+            if(strcmp(buff2, "y") == 0){
+              printf("how many times? (say -1 for infinite): ");
+              fgets(buff3, 100, stdin);
+              sscanf(buff3, "%d", times);
+              play_loop(usersong, times);
+            }
+            play(usersong);
+          }
+        }
+
         else{
             printf("that's not a command\n");
         }
@@ -486,105 +512,4 @@ for(int i=0; i<26; i++){
     }
 
 
-    
-
-
-//args down here
-    // if(argc >1 ){
-    //     // if(strcmp(argv[1], "create" ) == 0){
-    //     //    struct song_node** library = make_library();
-    //     // }
-    //     //um do we need a create one.
-    //    if(strcmp(argv[1], "view" ) == 0){
-    //         printf("you clicked view\n");
-    //        print_library(library); 
-    //     }
-    //     else if(strcmp(argv[1], "add" ) == 0){
-    //         char buff1[256];
-    //         char buff2[256];
-    //         printf("enter the artist name: ");
-    //         char * userartist = fgets(buff1, 100, stdin);
-    //         printf("enter the song name: ");
-    //         char * usersong = fgets(buff2, 100, stdin);
-    //         char song[100];
-    //         char artist[100];
-            
-            
-    //         sscanf(usersong, "%s", song);
-            
-    //         sscanf(userartist, "%s", artist);
-    //         add_song(library, artist, song); 
-    //         print_library(library);
-    //        //we're gonna have to change these things to the fgets thing
-    //     }
-    //     else if(strcmp(argv[1], "shuffle" ) == 0){
-    //         printf("how many songs do you want to shuffle: ");
-    //         char buff[256];
-    //         char * data = fgets(buff, 100, stdin);
-    
-    //         int shuffleint; 
-    //         sscanf(data, "%d", &shuffleint);
-    //         //change 5 to the length of the library
-    //        shuffle(library, shuffleint);
-    //     }
-    //     else if(strcmp(argv[1], "remove" ) == 0){
-    //         char buff1[256];
-    //         char buff2[256];
-    //         printf("enter the artist name: ");
-    //         char * userartist = fgets(buff1, 100, stdin);
-    //         printf("enter the song name: ");
-    //         char * usersong = fgets(buff2, 100, stdin);
-    //         err();
-    //         char song[100];
-    //         char artist[100];
-    //         sscanf(usersong, "%s", song);
-    //         sscanf(userartist, "%s", artist);
-    //         strtok(song, "\n");
-    //         strtok(artist, "\n");
-    //         // printf("%s", song);
-    //         remove_song_lib(library, song, artist);
-    //         // err(); 
-    //         print_library(library);
-
-            
-    //         // remove_song_lib(library, "aphex twin", "ageispolis");
-    //         //change those artist and song to fgets
-    //         // remove_song_lib(library, "aphex twin", "ageispolis");
-    //     }
-    //     else if(strcmp(argv[1], "search" ) == 0){
-    //         char buff1[256];
-    //         char buff2[256];
-    //         printf("enter the artist name: ");
-    //         char * userartist = fgets(buff1, 100, stdin);
-    //         printf("enter the song name: ");
-    //         char * usersong = fgets(buff2, 100, stdin);
-    //         char song[100];
-    //         char artist[100];
-            
-
-    //         sscanf(usersong, "%s", song);
-            
-    //         sscanf(userartist, "%s", artist);
-    //         //okay htis is the search wehn u know the whole name, 
-    //         //for the search by first letter we'll have to use more linked list stuff
-    //         // struct song_node* song = search_song(library, "black sabbath", "orchid");
-    //         // printf("found {%s, %s}\n", song->artist, song->name);
-    //         //update_data();
-    //         struct song_node* searching = search_song(library, artist, song);
-    //        // printf("hii");
-    //         if (searching == NULL) {
-    //     printf("Song not found\n");
-    // }
-    // else {
-    //      printf("found {%s, %s}\n", searching->artist, searching->name);
-    // }
-   
-    //     }
-    //     else if(strcmp(argv[1], "menu" ) == 0){
-    //         print_menu();
-    //     }
-    //     else{
-    //         printf("not a valid flag");
-    //     }
-   // }
 }

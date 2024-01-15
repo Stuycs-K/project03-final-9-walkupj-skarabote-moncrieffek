@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h> 
+#include <stdlib.h>
 #include "linkedlist.h"
 
 // EVA initialize a new library: Allocate enough memory for 27 linked lists, make sure each entry is an empty list.
@@ -190,6 +190,8 @@ void print_node(struct song_node *s){
   if(s != NULL) printf("%s by %s\n", s->mp3, s->artist);
 }
 
+
+
 void search_artist(struct song_node *front, char *artist){
     struct song_node *current = front;
     while(current){
@@ -224,7 +226,8 @@ void search_letter(struct song_node *front, char *letter){
 void print_menu(){
     printf("here are a list of commands you can use in this music player!\n");
     printf("add/rmv: Add and remove songs\n");
-    printf("play/pause/skip: Play songs (using a music player)\n");
+    printf("play library: Play the entire playlist (using a music player)\n");
+    printf("play: Play a song (using a music player)\n");
     printf("shuffle: Shuffle\n");
     printf("view: See the entire playlist\n");
     printf("search ___: Search for songs within the playlist by the song title and artist, or first letters\n");

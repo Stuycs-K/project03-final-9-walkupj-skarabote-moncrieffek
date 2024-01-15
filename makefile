@@ -1,13 +1,15 @@
 default: compile
-compile runme:  main.o library.o linkedlist.o
-	@gcc -o runme linkedlist.o library.o main.o
-main.o: main.c library.h linkedlist.h
+compile runme:  main.o library.o linkedlist.o music.o
+	@gcc -o runme linkedlist.o library.o main.o music.o
+main.o: main.c library.h linkedlist.h music.c
 	@gcc -c main.c
 library.o: library.c linkedlist.h
 	@gcc -c library.c
-linkedlist.o: linkedlist.c 
+linkedlist.o: linkedlist.c
 	@gcc -c linkedlist.c
-run: runme 
+music.o: music.c music.h
+	@gcc -c music.c
+run: runme
 	@./runme $(ARGS)
 clean:
 	@rm *.o

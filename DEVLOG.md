@@ -19,7 +19,11 @@ working with mpg123, editing node fields to include an mp3 to allow easier playb
 -> found more mp3s for nodes at home
 
 ### 2024-01-11 - readme and checking work
+<<<<<<< HEAD
 edited readme, removed compilation errors and checked that all functions, function headers, structs etc were consistent 
+=======
+edited readme, removed compilation errors and checked that all functions, function headers, structs etc were consistent
+>>>>>>> 2bbd12b93a42d5f6d7f1ebb7875daf17d82baffd
 
 ## Jo Walkup
 
@@ -41,6 +45,18 @@ Wrote some basic Bass code, tried to compile, major errors. Tried to understand 
 ### 2024-01-08 - More Bass struggling
 Desperately trying to compile, but always getting an "undefined symbols" error. Will ask K tmrw. ~40 minutes
 Also merged :D
+
+### 2024-01-10 - No more Bass + mpg123 started
+Deleted Bass because it sucked, starting writing functions for play and such using mpg123
+
+### 2024-01-11 - Finished play function
+Wrote the play function- user inputs song title (one word + .mp3), and it forks & execs
+
+### 2024-01-12 - Play fine-tuning
+Play works in current directory, only needs to input title (no .mp3), also will work on pause (?)
+
+### 2024-01-13 - Looping play
+Able to play the entire playlist
 
 ## Eva Skarabot
 

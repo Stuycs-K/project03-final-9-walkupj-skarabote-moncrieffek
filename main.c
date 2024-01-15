@@ -117,12 +117,71 @@ int shmid;
     shmctl(shmid, IPC_RMID, 0); //remove the segment
 }
 
-
+void parse_args( char * line, char ** arg_ary ){
+    int i = 0;
+    while(line != NULL){
+        
+        arg_ary[i] = strsep(&line, ",");
+        i++;
+    }
+}
 int main(int argc, char* argv[]){
     srand( time(NULL) );
 
-    printf("LINKED LIST TESTS\n====================================\n");
+    printf("welcome to stuyify!\n====================================\n");
     struct song_node** library = make_library();
+
+
+
+     int r_file;
+    r_file = open("songs.txt", O_RDONLY, 0);
+
+    char buff[BUFFER_SIZE+1];
+    buff[BUFFER_SIZE]=0;
+
+    char d[] = ","; //the delimerator
+        int bytes;
+    while((bytes = read(r_file, buff, BUFFER_SIZE))){
+        char * entries[64];
+        char * line = buff;
+        parse_args( line, entries );
+
+        int i=0;
+        int g=0;
+      while (entries[g+3] != NULL){
+      //      err();
+       printf("ENTRY: %s", entries[i]);
+       add_song(library, entries[i], entries[i+1]);
+        // printf("ENTRY: %s", entries[0]);
+        // printf("ENTRY: %s", entries[1]);
+        // printf("ENTRY: %s", entries[2]);
+        // printf("ENTRY: %s", entries[3]);
+        // printf("ENTRY: %s", entries[4]);
+       // printf("ENTRY: %s", entries[5]);
+        //if()
+        g++;
+      i++;
+    }
+    printf("hi");
+//     //int bytesread;
+    }
+    
+
+//     while(buff != NULL){
+//         char test[100] = "wow,i,am,trying,ig";
+//         char * curr = test;
+//         char * entry;
+//         entry = strsep(&curr, ",");
+//    // if(bytes == -1)err();//all non 0 are true
+//    // char *entry = strsep(&bytes, d);
+//    // printf("Bytes read: %u",bytes);
+//     printf("%s\n",entry);
+//     }
+
+
+
+
+
 
 
     //umm testing lol!
@@ -149,7 +208,7 @@ int main(int argc, char* argv[]){
         if(strcmp( strcommand, "view" )==0){
              printf("you clicked view\n");
            print_library(library); 
-           printf("here goes...\n");
+         //  printf("here goes...\n");
          //  ddisplay();
         }
         else if(strcmp( strcommand, "add") == 0){
@@ -256,7 +315,7 @@ printf("did some stuff\n");
     write(readdata,&song,ssize);
     write(readdata,",", 1);
     write(readdata,&artist,asize);
-    write(readdata,"\n", 1);
+    write(readdata,",", 1);
     *data = size; //work with the segment as a normal pointe
   // printf("*data: %d\n", *data) ;
     

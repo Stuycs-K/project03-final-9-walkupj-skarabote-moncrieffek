@@ -117,13 +117,14 @@ int shmid;
     shmctl(shmid, IPC_RMID, 0); //remove the segment
 }
 
-void parse_args( char * line, char ** arg_ary ){
+int parse_args( char * line, char ** arg_ary ){
     int i = 0;
     while(line != NULL){
         
         arg_ary[i] = strsep(&line, ",");
         i++;
     }
+    return i;
 }
 int main(int argc, char* argv[]){
     srand( time(NULL) );
@@ -144,14 +145,17 @@ int main(int argc, char* argv[]){
     while((bytes = read(r_file, buff, BUFFER_SIZE))){
         char * entries[64];
         char * line = buff;
-        parse_args( line, entries );
-
+        int num;
+        num = parse_args( line, entries );
+        printf("NUMBER OF SONGS: %d", num/2);
         int i=0;
         int g=0;
-      while (entries[g+3] != NULL){
+       
+      while (g < num){
       //      err();
-       printf("ENTRY: %s", entries[i]);
-       add_song(library, entries[i], entries[i+1]);
+      //err();
+       printf("ENTRY%d: %s",i, entries[i]);
+       
         // printf("ENTRY: %s", entries[0]);
         // printf("ENTRY: %s", entries[1]);
         // printf("ENTRY: %s", entries[2]);
@@ -161,7 +165,16 @@ int main(int argc, char* argv[]){
         //if()
         g++;
       i++;
+     
     }
+    int count = 0;
+     int h = 0;
+     while (count < num/2){
+       // err();
+    add_song(library, entries[h+1], entries[h]);
+     h = h+2;
+     count++;
+     }
     printf("hi");
 //     //int bytesread;
     }
@@ -258,7 +271,7 @@ printf("did some stuff\n");
 
     printf("data: %p\n", data);
     printf ("*data: %d\n", *data) ;
-    *data = * data + 10; //work with the segment as a normal pointe
+   // *data = * data + 10; //work with the segment as a normal pointe
     printf("*data: %d\n", *data);
 
     struct stat stat_buffer;
@@ -269,7 +282,7 @@ printf("did some stuff\n");
     r_file = open("songs.txt", O_RDONLY, 0);
     int bam = *data;
     
-    lseek( r_file, -1 * bam-1 , SEEK_END );
+   // lseek( r_file, -1 * bam-1 , SEEK_END );
     char buff[BUFFER_SIZE+1];
     buff[BUFFER_SIZE]=0;
 
@@ -396,6 +409,7 @@ shmdt (data); //detach
         else if(strcmp( strcommand, "exit") == 0){
            // rremove();
             exit(0);
+            //take everything out of the structs and put it in the shared memory file
         }
         else if(strcmp( strcommand, "clear") == 0){
            rremove();

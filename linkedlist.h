@@ -3,12 +3,13 @@
 struct song_node{
   char name[100];
   char artist[100];
+  char mp3[100];
   struct song_node *next;
 };
 
-struct song_node *memory(char* artist, char* name);
-struct song_node * insert_front(struct song_node * list, char* artist, char* name);
-struct song_node* insert_in_order(struct song_node* front, char* artist, char* name);
+struct song_node *memory(char* artist, char* name, char* mp3);
+struct song_node * insert_front(struct song_node * list, char* artist, char* name, char* mp3);
+struct song_node* insert_in_order(struct song_node* front, char* artist, char* name, char* mp3);
 void print_list(struct song_node* front);
 // void write_list(struct song_node* front, int readdata);
 struct song_node* find_song(struct song_node* front, char* artist, char* name);

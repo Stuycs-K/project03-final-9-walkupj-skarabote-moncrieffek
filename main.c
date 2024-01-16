@@ -152,9 +152,6 @@ int main(int argc, char* argv[]){
     printf("welcome to stuyify!\n====================================\n");
     struct song_node** library = make_library();
 
-  printf("welcome to stuyify!\n====================================\n");
-  struct song_node** library = make_library();
-
 
 
 

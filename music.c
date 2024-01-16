@@ -46,7 +46,7 @@ void play_library(struct song_node** lib){
     for(int i=0; i<26; i++){
         struct song_node* letter_list = lib[letter];
         if(lib[i]){
-            play(lib[i]->name);
+            play(lib[i]->mp3);
 		sleep(214);
         }
         letter++;

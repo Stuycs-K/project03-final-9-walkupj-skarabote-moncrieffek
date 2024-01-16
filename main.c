@@ -71,8 +71,8 @@ void ddisplay(){
         int r_file;
     r_file = open("songs.txt", O_RDONLY, 0);
     int bam = *data;
-    
-   
+
+
     char buff[BUFFER_SIZE+1];
     buff[BUFFER_SIZE]=0;
 
@@ -121,7 +121,7 @@ int shmid;
 int parse_argse( char * line, char ** arg_ary ){
     int i = 0;
     while(line != NULL){
-        
+
         arg_ary[i] = strsep(&line, ",");
         i++;
     }
@@ -152,12 +152,12 @@ int main(int argc, char* argv[]){
        // printf("NUMBER OF SONGS: %d", num/2);
         int i=0;
         int g=0;
-       
+
       while (g < num){
       //      err();
       //err();
       // printf("ENTRY%d: %s",i, entries[i]);
-       
+
         // printf("ENTRY: %s", entries[0]);
         // printf("ENTRY: %s", entries[1]);
         // printf("ENTRY: %s", entries[2]);
@@ -167,7 +167,7 @@ int main(int argc, char* argv[]){
         //if()
         g++;
       i++;
-     
+
     }
     int count = 0;
      int h = 0;
@@ -180,7 +180,7 @@ int main(int argc, char* argv[]){
     printf("hi");
 //     //int bytesread;
     }
-    
+
 
 //     while(buff != NULL){
 //         char test[100] = "wow,i,am,trying,ig";
@@ -194,16 +194,16 @@ int main(int argc, char* argv[]){
 //     }
 
 
-    
+
 
     //shared memory
     ccreate();//i think it's because a new shared memory is being created every time
 
+add_song(library, "the smiths", "panic", "panic.mp3");
+add_song(library, "laufey", "bewitched", "bewitched.mp3");
+   add_song(library, "yasuha", "flyday chinatown", "flyday.mp3");
+    add_song(library, "frank sinatra", "fly me to the moon + rain (?)", "rain.mp3");
 
-   
-    add_song(library, "idk", "rain", "rain.mp3");
-    add_song(library, "yasuha", "flyday", "flyday.mp3");
-  
 
     //MOVE THIS STUFF TO CLIENT LATER
     while(1){
@@ -217,7 +217,7 @@ int main(int argc, char* argv[]){
         if(strcmp( strcommand, "view" )==0){
              printf("you clicked view\n");
 
-           print_library(library); 
+           print_library(library);
 
         }
         else if(strcmp( strcommand, "add") == 0){
@@ -234,12 +234,12 @@ int main(int argc, char* argv[]){
             // char * usersong = fgets(buff2, 100, stdin);
             // char song[100];
             // char artist[100];
-            
-            
+
+
             // sscanf(usersong, "%s", song);
-            
+
             // sscanf(userartist, "%s", artist);
-            // add_song(library, artist, song); 
+            // add_song(library, artist, song);
             print_library(library);
 
 
@@ -255,15 +255,15 @@ int main(int argc, char* argv[]){
 
 printf("did some stuff\n");
 
- 
+
 
 //err();
 
     semop(semd, &sb, 1); //perform the operation
     // printf("got the semaphore!\n");
-   
-     
-    
+
+
+
 
 //     printf("data: %p\n", data);
 //     printf ("*data: %d\n", *data) ;
@@ -277,7 +277,7 @@ printf("did some stuff\n");
     int r_file;
     r_file = open("songs.txt", O_RDONLY, 0);
     int bam = *data;
-    
+
    // lseek( r_file, -1 * bam-1 , SEEK_END );
     char buff[BUFFER_SIZE+1];
     buff[BUFFER_SIZE]=0;
@@ -290,7 +290,7 @@ printf("did some stuff\n");
 
     }
 
- 
+
 
 
     char modify_line[300];//LMFAOO CHECK ALL THE 30s
@@ -312,14 +312,14 @@ printf("did some stuff\n");
             sscanf(userartist, "%s", artist);
 
             sscanf(usermp3, "%s", usermp3);
-            add_song(library, artist, song, usermp3); 
+            add_song(library, artist, song, usermp3);
 
 
 
 
             print_library(library);
 
-            //add_song(library, artist, song); 
+            //add_song(library, artist, song);
 
     //fgets(modify_line,300,stdin);
     //printf("the line u wrote: %s\n", modify_line);
@@ -338,7 +338,7 @@ printf("did some stuff\n");
 //     write(readdata,",", 1);
 //     *data = size; //work with the segment as a normal pointe
 //   // printf("*data: %d\n", *data) ;
-    
+
 
 
 
@@ -424,7 +424,7 @@ shmdt (data); //detach
    // write_library(library, readdata);
 for(int i=0; i<26; i++){
     int letter = i+71;
-    
+
 
 //printf("letter: %s", letter);
 // for(int i=0; i<26; i++){
@@ -442,7 +442,7 @@ for(int i=0; i<26; i++){
         char * wowa = front->artist;
         char * wows = front->name;
 
-    
+
     int ssize = strlen(wows);
     int asize = strlen(wowa);
     int size = strlen(wows) + strlen(wowa);
@@ -476,7 +476,7 @@ for(int i=0; i<26; i++){
            rremove();
            //clear_library(library);
         }
-        
+
         else if(strcmp( strcommand, "play") == 0){
           char buff[256];
           printf("if you want to play the entire playlist, enter y. else, enter n: ");
@@ -508,7 +508,7 @@ for(int i=0; i<26; i++){
             printf("that's not a command\n");
         }
 
-        
+
     }
 
 

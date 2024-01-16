@@ -59,9 +59,6 @@ Able to play the entire playlist
 
 ## Eva Skarabot
 
-### 2024-01-02 - Brief description
-Expanded description including how much time was spent on task.
-
 ### 2024-01-03 - start proposal
 Wrote what parts I would be responsible for, finished the intended usage section, included all the features
 
@@ -80,11 +77,26 @@ Updated code so that the ARGS=add and shuffle works, also uses user input now; r
 ### 2024-01-07 - search
 Updated code so that the ARGS=search works, also uses user input now; remove is still broken
 
-### 2024-01-08 - search
+### 2024-01-08 - looping
 Made it a looping program that commands could be put in
 
-### 2024-01-09 - search
-Included some shared memory
+### 2024-01-09 - shared memory
+Included some shared memory and would access it in the "add" command
 
-### 2024-01-09 - search
-added an exit
+### 2024-01-09 - exit
+added an exit command so the user doesn't have to command c every time
+
+### 2024-01-10 - 2021-01-12 - semaphores
+implementing shared memory and semaphores so that the list would save in a file
+
+### 2024-01-11 - 2024-01-12 - networking, but ended up not in final project
+Tried implementing sockets and a networking system, was recieving bugs so did not end up follwoing through
+
+### 2024-01-12 - sharing songs part 1
+Finished managing to share the memory between "make run"s, but only if you added it in the run before
+
+### 2024-01-14 - finished sharing songs
+Finished making the songs you add carry over forever
+
+### 2024-01-15 - signals and merging
+Finished merging and fixing merge conflicts, preparing for the presentation, adding in signal that still saves the songs you added even if you SIGQUIT

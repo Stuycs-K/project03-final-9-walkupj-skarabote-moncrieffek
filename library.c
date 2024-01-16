@@ -225,12 +225,11 @@ void search_letter(struct song_node *front, char *letter){
 //11. extra !!
 void print_menu(){
     printf("here are a list of commands you can use in this music player!\n");
-    printf("add/rmv: Add and remove songs\n");
-    printf("play library: Play the entire playlist (using a music player)\n");
+    printf("add: add songs\n");
     printf("play: Play a song (using a music player)\n");
-    printf("shuffle: Shuffle\n");
+    printf("shuffle: Shuffle the order of songs\n");
     printf("view: See the entire playlist\n");
-    printf("search ___: Search for songs within the playlist by the song title and artist, or first letters\n");
+    printf("search ___: Search for songs within the playlist by the song title and artist\n");
     printf("menu: Print a list of user commands\n");
 }
 

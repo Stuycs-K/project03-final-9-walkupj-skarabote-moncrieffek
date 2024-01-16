@@ -22,6 +22,9 @@ int play(char * file){
 		char path[512] = "./";
 		file = strtok(file, "\n");
 		// strcat(file, ".mp3");
+		if(strstr(file, ".mp3") == NULL){
+			strcat(file, ".mp3");
+		}
 		strcat(path, file);
 		strcat(line, path);
 		//printf("line = %s\n", line);
@@ -47,16 +50,18 @@ void play_library(struct song_node** lib){
         struct song_node* letter_list = lib[letter];
         if(lib[i]){
             play(lib[i]->mp3);
-		sleep(300);
+		sleep(250);
         }
         letter++;
     }
 }
 
 void play_loop(char* file, int times){
+	printf("times = %d\n", times);
     for(int i=0; i<times; i++){
+			printf("i = %d\n", i);
             play(file);
-		sleep(214);
+		sleep(250);
         }
     }
 

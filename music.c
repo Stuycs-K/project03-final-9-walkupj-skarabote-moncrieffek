@@ -21,7 +21,7 @@ int play(char * file){
 		char line[512] = "mpg123 ";
 		char path[512] = "./";
 		file = strtok(file, "\n");
-		strcat(file, ".mp3");
+		// strcat(file, ".mp3");
 		strcat(path, file);
 		strcat(line, path);
 		//printf("line = %s\n", line);
@@ -47,7 +47,7 @@ void play_library(struct song_node** lib){
         struct song_node* letter_list = lib[letter];
         if(lib[i]){
             play(lib[i]->mp3);
-		sleep(214);
+		sleep(300);
         }
         letter++;
     }

@@ -22,3 +22,4 @@ users can type commands (add, remove, play, etc) to control the playlists and pl
 ### Bugs:
 - when you play the whole playlist, the child process sleeps for the length of the longest song (manually inputted), so sometimes there's a gap between when the last song finished and the next song begins
 - you can add songs that don't have mp3 files (only two mp3 files are rain.mp3 and flyday.mp3), but if you want to play the entire playlist, enter clear first (to only play songs with mp3 files)
+- also only songs with one-word titles can be played

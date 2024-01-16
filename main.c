@@ -43,6 +43,20 @@ int err(){
 }
 
 
+static void sighandler( int signo){
+      if ( signo == SIGINT ){
+           // printf("Process with PID: %d Exiting due to SIGINT", getpid());
+            
+            printf("WARNING!! NEW ADDED SONGS WILL NOT BE SAVED");
+            //THIS IS THE ACTUAL WRITING STUFF
+
+
+            exit(0);
+      }
+      
+}
+
+
 void ccreate(){
 
     //files
@@ -127,7 +141,12 @@ int parse_argse( char * line, char ** arg_ary ){
     }
     return i;
 }
+
+
+
 int main(int argc, char* argv[]){
+
+    signal( SIGINT, sighandler);
     srand( time(NULL) );
 
     printf("welcome to stuyify!\n====================================\n");

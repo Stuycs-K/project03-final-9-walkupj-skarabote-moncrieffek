@@ -99,4 +99,4 @@ Finished managing to share the memory between "make run"s, but only if you added
 Finished making the songs you add carry over forever
 
 ### 2024-01-15 - signals and merging
-Finished merging and fixing merge conflicts, preparing for the presentation, adding in signal that gives a warning if you quit without exit, updated menu
+Finished merging and fixing merge conflicts, preparing for the presentation, adding in signal that gives a warning if you quit without exit, updated menu, created a better searching method

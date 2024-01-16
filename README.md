@@ -9,15 +9,16 @@ music playlist manager and player
 
 ### Instructions:
 if ffmpeg isn't installed, install it
-<<<<<<< HEAD
+
 then use make compile and make run
 
-users can type commands (add, remove, play, etc) to control the playlists and play music
-=======
-then use make compile and make run
+
 
 type "menu" first to get a list of commands you can use
 users can type commands (add, remove, play, etc) to control the playlists and play music
+they can also type commands such as 
+- shuffle which will generate a random order of however many songs they want
+- search which will help you determine what song you are looking for (if you ever want to end the loop however, you will need to type break for both questions)
 
 ### Bugs:
 - when you play the whole playlist, the child process sleeps for the length of the longest song (manually inputted), so sometimes there's a gap between when the last song finished and the next song begins

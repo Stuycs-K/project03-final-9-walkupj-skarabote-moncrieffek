@@ -11,6 +11,8 @@ void shuffle(struct song_node** lib, int n);
 struct song_node** remove_song_lib(struct song_node** lib, char* artist, char* name);
 void clear_library(struct song_node** lib);
 void print_menu();
+void search_title(struct song_node *front, char *name);
+void search_artistt(struct song_node *front, char *artist);
 // write_letter(struct song_node** lib, char letter, int readdata);
 // write_library(struct song_node** lib, int readdata);
 #endif

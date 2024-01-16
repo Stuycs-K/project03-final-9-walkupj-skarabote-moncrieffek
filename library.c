@@ -192,11 +192,12 @@ void print_node(struct song_node *s){
 
 
 
-void search_artist(struct song_node *front, char *artist){
+void search_artistt(struct song_node *front, char *artist){
     struct song_node *current = front;
     while(current){
         if(strcmp(current->artist, artist) == 0){
             print_node(current);
+            //printf("artist");
         }
         current = current->next;
     }
@@ -221,6 +222,7 @@ void search_letter(struct song_node *front, char *letter){
         current = current->next;
   }
 }
+
 
 //11. extra !!
 void print_menu(){

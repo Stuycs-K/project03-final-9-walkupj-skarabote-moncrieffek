@@ -152,8 +152,6 @@ int main(int argc, char* argv[]){
     printf("welcome to stuyify!\n====================================\n");
     struct song_node** library = make_library();
 
-  printf("welcome to stuyify!\n====================================\n");
-  struct song_node** library = make_library();
 
 
 
@@ -383,8 +381,23 @@ int main(int argc, char* argv[]){
     else if(strcmp( strcommand, "search") == 0){
       char buff1[256];
       char buff2[256];
+      char buff3[256];
+      char buff4[256];
+
+        printf("do you know the artist? (y/n/break): ");
+        char * artistanswer = fgets(buff3, 100, stdin);
+       strtok(artistanswer, "\n");
+        printf("do you know the name of the song? (y/n/break): ");
+        char * songanswer = fgets(buff4, 100, stdin);
+       strtok(songanswer, "\n");
+      
+
+
+
+      if (strcmp(artistanswer, "y")==0 && strcmp(songanswer, "y") == 0){
       printf("enter the artist name: ");
       char * userartist = fgets(buff1, 100, stdin);
+      
       printf("enter the song name: ");
       char * usersong = fgets(buff2, 100, stdin);
       char song[100];
@@ -406,6 +419,42 @@ int main(int argc, char* argv[]){
       }
       else{
         printf("found {%s, %s}\n", searching->artist, searching->name);
+      }
+      }
+      
+      else if (strcmp(artistanswer, "y")==0 && strcmp(songanswer, "n") == 0){
+        printf("enter the artist name: ");
+      char * userartist = fgets(buff1, 100, stdin);
+      
+
+  
+      char artist[100];
+
+
+
+
+      sscanf(userartist, "%s", artist);
+      printf("found: ");
+        print_artist(library, artist);
+      }
+      else if (strcmp(artistanswer, "n")==0 && strcmp(songanswer, "n") == 0){
+
+      
+      printf("enter the first letter of the artist: ");
+      char testchar;
+      scanf(" %c", &testchar);
+    //   char * usersong = fgets(buff2, 100, stdin);
+    //   char song[1];
+  
+
+
+    //   sscanf(usersong, "%c", song);
+
+ 
+        print_letter(library, testchar);
+      }
+      else{
+        printf("keep searching!\n");
       }
     }
     else if(strcmp(strcommand, "remove" ) == 0){

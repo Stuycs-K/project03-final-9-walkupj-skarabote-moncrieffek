@@ -42,6 +42,12 @@ int err(){
   exit(0);
 }
 
+union semun {
+  int val;                  //used for SETVAL
+  struct semid_ds *buf;     //used for IPC_STAT and IPC_SET
+  unsigned short  *array;   //used for SETALL
+  struct seminfo  *__buf;
+};
 
 static void sighandler( int signo){
       if ( signo == SIGINT ){
@@ -267,6 +273,10 @@ int main(int argc, char* argv[]){
       //um
       int semd = semget(KEY, 1, 0);
 
+      union semun us;
+      us.val = 1;
+      semctl(semd, 0, SETVAL, us);
+
       struct sembuf sb;
       sb.sem_num = 0;
       sb.sem_flg = SEM_UNDO;
@@ -389,14 +399,14 @@ int main(int argc, char* argv[]){
         printf("do you know the name of the song? (y/n/break): ");
         char * songanswer = fgets(buff4, 100, stdin);
        strtok(songanswer, "\n");
-      
+
 
 
 
       if (strcmp(artistanswer, "y")==0 && strcmp(songanswer, "y") == 0){
       printf("enter the artist name: ");
       char * userartist = fgets(buff1, 100, stdin);
-      
+
       printf("enter the song name: ");
       char * usersong = fgets(buff2, 100, stdin);
       char song[100];
@@ -420,13 +430,13 @@ int main(int argc, char* argv[]){
         printf("found {%s, %s}\n", searching->artist, searching->name);
       }
       }
-      
+
       else if (strcmp(artistanswer, "y")==0 && strcmp(songanswer, "n") == 0){
         printf("enter the artist name: ");
       char * userartist = fgets(buff1, 100, stdin);
-      
 
-  
+
+
       char artist[100];
 
 
@@ -438,18 +448,18 @@ int main(int argc, char* argv[]){
       }
       else if (strcmp(artistanswer, "n")==0 && strcmp(songanswer, "n") == 0){
 
-      
+
       printf("enter the first letter of the artist: ");
       char testchar;
       scanf(" %c", &testchar);
     //   char * usersong = fgets(buff2, 100, stdin);
     //   char song[1];
-  
+
 
 
     //   sscanf(usersong, "%c", song);
 
- 
+
         print_letter(library, testchar);
       }
       else{

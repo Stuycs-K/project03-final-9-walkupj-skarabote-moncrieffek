@@ -29,6 +29,8 @@
 #define KEY 244753034//idk why it's this number
 #define BUFFER_SIZE 3000
 
+int semd; 
+
 // void err(int i, char*message){
 //   if(i < 0){
 // 	  printf("Error: %s - %s\n",message, strerror(errno));
@@ -79,6 +81,10 @@ void ccreate(){
   *data = * data + 10; //work with the segment as a normal pointe
   printf("*data: %d\n", *data) ;
   shmdt (data); //detach
+
+      union semun us;
+      us.val = 1;
+      semctl(semd, 0, SETVAL, us);
 }
 
 
@@ -250,7 +256,7 @@ int main(int argc, char* argv[]){
       int *data; int shmid;
       shmid = shmget (KEY, sizeof(int), 0 | 0640) ;
       data = shmat (shmid, 0, 0); //attach
-      // ccreate();
+      ccreate();
       // char buff1[256];
       // char buff2[256];
       // printf("enter the artist name: ");
@@ -267,15 +273,12 @@ int main(int argc, char* argv[]){
       // add_song(library, artist, song);
       print_library(library);
 
-
-
-
       //um
-      int semd = semget(KEY, 1, 0);
+    semd = semget(KEY, 1, 0);
 
-      union semun us;
-      us.val = 1;
-      semctl(semd, 0, SETVAL, us);
+    //   union semun us;
+    //   us.val = 1;
+    //   semctl(semd, 0, SETVAL, us);
 
       struct sembuf sb;
       sb.sem_num = 0;
@@ -289,7 +292,7 @@ int main(int argc, char* argv[]){
       //err();
 
       semop(semd, &sb, 1); //perform the operation
-      // printf("got the semaphore!\n");
+      printf("got the semaphore!\n");
 
 
 

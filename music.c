@@ -38,6 +38,7 @@ int play(char * file){
 		//printf("res = %s\n", res);
 		char *args[100];
 		parse_argsj(res, args);
+		printf("args[1] = %s\n", args[1]);
 		int a = execvp(args[0], args);
 		exit(0);
 	}

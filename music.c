@@ -35,10 +35,10 @@ int play(char * file){
 		// }
 		char * res;
 		res = strtok(line, "\n");
-		//printf("res = %s\n", res);
+//		printf("res = %s\n", res);
 		char *args[100];
 		parse_argsj(res, args);
-		printf("args[1] = %s\n", args[1]);
+//		printf("args[1] = %s\n", args[1]);
 		int a = execvp(args[0], args);
 		exit(0);
 	}

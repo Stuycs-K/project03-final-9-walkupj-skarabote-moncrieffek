@@ -70,17 +70,17 @@ void ccreate(){
   //files
   int le_file;
   le_file = open("songs.txt", O_RDWR | O_TRUNC | O_CREAT, 0666); //check these permisisons
-  printf("opened le file \n");
+//  printf("opened le file \n");
   //this initializes all the shared memory
   int *data; 
   int shmid;
   shmid = shmget (KEY, sizeof(int), IPC_CREAT | 0640) ;
-  printf ("shmid: %d\n", shmid) ;
+//  printf ("shmid: %d\n", shmid) ;
   data = shmat (shmid, 0, 0); //attach
-  printf("data: %p\n", data);
-  printf ("*data: %d\n", *data) ;
+//  printf("data: %p\n", data);
+//  printf ("*data: %d\n", *data) ;
   *data = * data + 10; //work with the segment as a normal pointe
-  printf("*data: %d\n", *data) ;
+ // printf("*data: %d\n", *data) ;
   shmdt (data); //detach
 
 
@@ -137,7 +137,7 @@ void rremove(){
   int bytes;
   while((bytes = read(r_file, buff, BUFFER_SIZE))){
     //if(bytes == -1)err();//all non 0 are true
-    printf("helo\n");
+   //// printf("helo\n");
     // printf("Bytes read: %u",bytes);
     printf("%s\n",buff);
     //int bytesread;
@@ -212,7 +212,7 @@ int main(int argc, char* argv[]){
       h = h+3;
       count++;
     }
-    printf("hi");
+   // printf("hi");
     //     //int bytesread;
   }
 
@@ -289,15 +289,15 @@ int main(int argc, char* argv[]){
       sb.sem_flg = SEM_UNDO;
       sb.sem_op = -1; //setting the operation to down
 
-      printf("did some stuff\n");
+     // printf("did some stuff\n");
 
-
+	printf("loading...\n");
 
       //err();
 
       semop(semd, &sb, 1); //perform the operation
-      printf("got the semaphore!\n");
-
+     // printf("got the semaphore!\n");
+	printf("loaded!\n");
 
 
 
@@ -585,7 +585,7 @@ int main(int argc, char* argv[]){
         printf("how many times? (say -1 for infinite): ");
         fgets(buff3, 100, stdin);
         sscanf(buff3, "%d", &times);
-        printf("times = %d\n", times);
+//        printf("times = %d\n", times);
         play_loop(usersong, times);
       }
       else{

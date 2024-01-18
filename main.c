@@ -196,7 +196,7 @@ int main(int argc, char* argv[]){
      h = h+3;
      count++;
      }
-    printf("hi");
+    // printf("hi");
 //     //int bytesread;
     }
 
@@ -272,7 +272,7 @@ add_song(library, "laufey", "bewitched", "bewitched.mp3");
     sb.sem_flg = SEM_UNDO;
     sb.sem_op = -1; //setting the operation to down
 
-printf("did some stuff\n");
+// printf("did some stuff\n");
 
 
 

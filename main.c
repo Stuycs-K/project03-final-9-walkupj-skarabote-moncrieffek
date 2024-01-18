@@ -72,7 +72,8 @@ void ccreate(){
   le_file = open("songs.txt", O_RDWR | O_TRUNC | O_CREAT, 0666); //check these permisisons
   printf("opened le file \n");
   //this initializes all the shared memory
-  int *data; int shmid;
+  int *data; 
+  int shmid;
   shmid = shmget (KEY, sizeof(int), IPC_CREAT | 0640) ;
   printf ("shmid: %d\n", shmid) ;
   data = shmat (shmid, 0, 0); //attach

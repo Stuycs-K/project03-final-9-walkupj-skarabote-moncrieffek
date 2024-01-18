@@ -9,7 +9,7 @@
 
 // int play(char * file, char* loop, char *times){
 int play(char * file){
-	printf("forking and playing your song\n");
+	printf("Forking and playing your song!\n");
 	pid_t p = fork();
 	if(p < 0){
 		printf("wuh oh\n");
@@ -57,9 +57,9 @@ void play_library(struct song_node** lib){
 }
 
 void play_loop(char* file, int times){
-	printf("times = %d\n", times);
+	printf("Looping %d times\n", times);
     for(int i=0; i<times; i++){
-			printf("i = %d\n", i);
+			printf("On repetition #%d\n", i);
             play(file);
 		sleep(250);
         }

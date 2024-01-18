@@ -83,6 +83,9 @@ void ccreate(){
   printf("*data: %d\n", *data) ;
   shmdt (data); //detach
 
+
+
+  semd = semget(KEY, 1, IPC_CREAT | IPC_EXCL | 0644);
       union semun us;
       us.val = 1;
       semctl(semd, 0, SETVAL, us);
